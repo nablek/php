@@ -9,7 +9,7 @@ $user = 'root';
 $password = '';
 
 // データベース接続
-try {;
+try {
 	// systemというデータベースに接続，IPアドレスはlocalhost，user,passwordは変数を呼び出し
 	$dbh = new PDO('mysql:dbname=system;host=localhost', $user, $password);
 
