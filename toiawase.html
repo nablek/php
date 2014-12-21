@@ -7,21 +7,23 @@
 <body>
     <center>
         <h1>お問い合わせ</h1>
-        <form method="post" action="mail.php">
-        <form method="post" action="example.cgi">
+        <!--
+        actionは実際に使用するファイルに書き換え
+        あとformがなぜか2個あったんだけどそれだと何故かうまく動かなかったため
+        1個消しました(それでhtml班的に問題があるようならまた指摘お願いします)
+        -->
+        <form action="toiawase.php" method="post">
             <!-- ジャンル選択ラジオボタン -->
             <p>質問のジャンルを選んでください<br>
             <input type="radio" name="q" value="システム"> システム
             <input type="radio" name="q" value="イベント"> イベント
             <input type="radio" name="q" value="その他"> その他
             </p>
-        </form>
         <table class="sample-table">
             <!-- 氏名入力欄 -->
-	    <form action="output.php" method="post"> 
             <tr>
             <th>氏名(必須)</th>
-            <td><input type="text" name="name" size="30"></td> <!-- 名前→nameに変更 -->
+            <td><input type="text" name="name" size="30"></td>
             </tr>
             
             <!-- メールアドレス入力欄 -->
