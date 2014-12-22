@@ -1,6 +1,7 @@
-<?php	
+<?php
 session_start();
 $page = @$_GET['p'];
+
 //ページ名を取得して$pageに代入、ページ名がない場合はtopを代入
 if (!$page) $page = 'top';
 if (!preg_match('/^[a-z]{1,8}$/', $page)) exit();
@@ -37,10 +38,13 @@ if (!isset($_SESSION['name'])) {
 					$page = 'notfound';
 				
 				}
-		} 
+		} else {
+			$page = 'notfound';
+		}
 }
 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,7 +71,7 @@ h1 {
 </div>
 <div id="main">
 <?php
-  require "$page.php";
+   require "$page.php";
 ?>
 </div>
 <div id="footer">
