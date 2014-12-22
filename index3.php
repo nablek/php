@@ -10,12 +10,13 @@ if (!isset($_SESSION['name'])) {
 	$page = 'login';
 	
 	//IDとパスワードが入力されれば以下のif文の内容を実行する
-	if (!empty($_POST['id']) && !empty($_POST['pass'])) {
+	if (!empty($_POST['id']) && !empty($_POST['password'])) {
 	
 		$id = "tanaka";
-		$pass = "tanaka";
+		$password = "tanaka";
 		$input_id = $_POST['id'];
-		$input_pass = $_POST['pass'];
+		$input_password = $_POST['password'];
+	
 		 
 		 
 		//IDとパスワードが上で設定したものと同じならばログイン先のトップページへ飛ぶ
@@ -23,14 +24,14 @@ if (!isset($_SESSION['name'])) {
 		//パスワードは合っているがIDが間違っている場合はIDが間違っていますというエラーページへ飛ぶ
 		//どちらも間違っている場合は相応のエラーページへ飛ぶ
 		//何も入力されていない場合は何も入力されてませんというページへ飛ぶ（ようにしたいけどうまくいかない←ここ重要！！！！！！！！！！）
-		if ($id == $input_id && $pass == $input_pass) {
+		if ($id == $input_id && $password == $input_password) {
 				   $_SESSION['name'] = '田中';
 				   $page = 'top';
-		} elseif($id == $input_id && $pass != $input_pass) {
+		} elseif($id == $input_id && $password != $input_password) {
 			  $page = 'top_pass_error';
-			} elseif ($id != $input_id && $pass == $input_pass) {
+			} elseif ($id != $input_id && $password == $input_password) {
 				$page = 'top_ID_error';
-				} elseif ($id != $input_id && $pass != $input_pass) {
+				} elseif ($id != $input_id && $password != $input_password) {
 					$page = 'error';
 				} else {
 					$page = 'notfound';
