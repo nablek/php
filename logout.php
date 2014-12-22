@@ -1,4 +1,4 @@
 <?php
 $_SESSION['name'] = null;
 ?>
-ƒƒOƒAƒEƒg‚µ‚Ü‚µ‚½B
+ãƒ­ã‚°ã‚¢ã‚¦ãƒˆã—ã¾ã—ãŸã€‚

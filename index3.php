@@ -1,15 +1,15 @@
 <?php	
 session_start();
 $page = @$_GET['p'];
-//�y�[�W�����擾����$page�ɑ���A�y�[�W�����Ȃ��ꍇ��top����
+//ページ名を取得して$pageに代入、ページ名がない場合はtopを代入
 if (!$page) $page = 'top';
 if (!preg_match('/^[a-z]{1,8}$/', $page)) exit();
 
-//���O�C�������ǂ����̃`�F�b�N�A�ϐ�name���ݒ肳��Ă���΃��O�C�����A���O�C�����łȂ����$page��login�������ă��O�C���y�[�W�֔��
+//ログイン中かどうかのチェック、変数nameが設定されていればログイン中、ログイン中でなければ$pageにloginを代入してログインページへ飛ぶ
 if (!isset($_SESSION['name'])) {
 	$page = 'login';
 	
-//ID�ƃp�X���[�h�����͂����Έȉ���if���̓��e�����s����	
+	//IDとパスワードが入力されれば以下のif文の内容を実行する
 	if (!empty($_POST['id']) && !empty($_POST['pass'])) {
 	
 		$id = "tanaka";
@@ -18,13 +18,13 @@ if (!isset($_SESSION['name'])) {
 		$input_pass = $_POST['pass'];
 		 
 		 
-//ID�ƃp�X���[�h����Őݒ肵�����̂Ɠ����Ȃ�΃��O�C����̃g�b�v�y�[�W�֔��
-//ID�͍����Ă��邪�p�X���[�h���Ԉ���Ă���ꍇ�̓p�X���[�h���Ԉ���Ă��܂��Ƃ����G���[�y�[�W�֔��
-//�p�X���[�h�͍����Ă��邪ID���Ԉ���Ă���ꍇ��ID���Ԉ���Ă��܂��Ƃ����G���[�y�[�W�֔��
-//�ǂ�����Ԉ���Ă���ꍇ�͑����̃G���[�y�[�W�֔��
-//�������͂���Ă��Ȃ��ꍇ�͉������͂���Ă܂���Ƃ����y�[�W�֔�ԁi�悤�ɂ��������ǂ��܂������Ȃ��������d�v�I�I�I�I�I�I�I�I�I�I�j	
+		//IDとパスワードが上で設定したものと同じならばログイン先のトップページへ飛ぶ
+		//IDは合っているがパスワードが間違っている場合はパスワードが間違っていますというエラーページへ飛ぶ
+		//パスワードは合っているがIDが間違っている場合はIDが間違っていますというエラーページへ飛ぶ
+		//どちらも間違っている場合は相応のエラーページへ飛ぶ
+		//何も入力されていない場合は何も入力されてませんというページへ飛ぶ（ようにしたいけどうまくいかない←ここ重要！！！！！！！！！！）
 		if ($id == $input_id && $pass == $input_pass) {
-				   $_SESSION['name'] = '�c��';
+				   $_SESSION['name'] = '田中';
 				   $page = 'top';
 		} elseif($id == $input_id && $pass != $input_pass) {
 			  $page = 'top_pass_error';
@@ -44,7 +44,7 @@ if (!isset($_SESSION['name'])) {
 <html>
 <head>
 <meta charset="utf-8">
-<title>�V�����x���V�X�e��</title>
+<title>新入生支援システム</title>
 <style>
 h1 {
   margin: 0;
@@ -62,7 +62,7 @@ h1 {
 </head>
 <body>
 <div id="header">
-  <h1>�V�����x���V�X�e��</h1>
+  <h1>新入生支援システム</h1>
 </div>
 <div id="main">
 <?php
@@ -70,10 +70,10 @@ h1 {
 ?>
 </div>
 <div id="footer">
-  <a href="?p=top">�g�b�v�y�[�W</a> |
-  <a href="?p=party">�閧�̃p�[�e�B�[</a> |
-  <a href="?p=journey">�閧�̃W���[�j�[</a> |
-  <a href="?p=logout">���O�A�E�g</a>
+  <a href="?p=top">トップページ</a> |
+  <a href="?p=party">秘密のパーティー</a> |
+  <a href="?p=journey">秘密のジャーニー</a> |
+  <a href="?p=logout">ログアウト</a>
 </div>
 </body>
 </html>

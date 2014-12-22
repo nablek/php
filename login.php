@@ -1,5 +1,5 @@
 <form action="index2.php" method="post">
   ID<br><input type="text" name="id"><br>
-  ƒpƒXƒ[ƒh<br><input type="password" name="pass"><br>
-  <input type="submit" value="‘—M">
+  ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰<br><input type="password" name="pass"><br>
+  <input type="submit" value="é€ä¿¡">
 </form>

@@ -1,1 +1,1 @@
-<?php echo $_SESSION['name'] ?>‚³‚ñAV“ü¶Žx‰‡ƒVƒXƒeƒ€‚Ö‚æ‚¤‚±‚»I
+<?php echo $_SESSION['name'] ?>ã•ã‚“ã€æ–°å…¥ç”Ÿæ”¯æ´ã‚·ã‚¹ãƒ†ãƒ ã¸ã‚ˆã†ã“ãï¼

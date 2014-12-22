@@ -1,1 +1,1 @@
-<?php echo $_SESSION['name'] ?>����A�����͔閧�̃p�[�e�B�[�y�[�W�ł��B
+<?php echo $_SESSION['name'] ?>さん、ここは秘密のパーティーページです。。
