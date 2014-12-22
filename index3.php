@@ -1,13 +1,15 @@
 <?php	
 session_start();
 $page = @$_GET['p'];
+//ページ名を取得して$pageに代入、ページ名がない場合はtopを代入
 if (!$page) $page = 'top';
 if (!preg_match('/^[a-z]{1,8}$/', $page)) exit();
 
+//ログイン中かどうかのチェック、変数nameが設定されていればログイン中、ログイン中でなければ$pageにloginを代入してログインページへ飛ぶ
 if (!isset($_SESSION['name'])) {
 	$page = 'login';
 	
-	
+//IDとパスワードが入力されれば以下のif文の内容を実行する	
 	if (!empty($_POST['id']) && !empty($_POST['pass'])) {
 	
 		$id = "tanaka";
@@ -16,16 +18,25 @@ if (!isset($_SESSION['name'])) {
 		$input_pass = $_POST['pass'];
 		 
 		 
-	
+//IDとパスワードが上で設定したものと同じならばログイン先のトップページへ飛ぶ
+//IDは合っているがパスワードが間違っている場合はパスワードが間違っていますというエラーページへ飛ぶ
+//パスワードは合っているがIDが間違っている場合はIDが間違っていますというエラーページへ飛ぶ
+//どちらも間違っている場合は相応のエラーページへ飛ぶ
+//何も入力されていない場合は何も入力されてませんというページへ飛ぶ（ようにしたいけどうまくいかない←ここ重要！！！！！！！！！！）	
 		if ($id == $input_id && $pass == $input_pass) {
 				   $_SESSION['name'] = '田中';
 				   $page = 'top';
-		}else{
-			  echo  "パスワードが間違っています";
-			}
-		}else{
-			  echo  "パスワードを入力してください";
-	}
+		} elseif($id == $input_id && $pass != $input_pass) {
+			  $page = 'top_pass_error';
+			} elseif ($id != $input_id && $pass == $input_pass) {
+				$page = 'top_ID_error';
+				} elseif ($id != $input_id && $pass != $input_pass) {
+					$page = 'error';
+				} else {
+					$page = 'notfound';
+				
+				}
+		} 
 }
 
 ?>
