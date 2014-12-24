@@ -7,10 +7,6 @@
 
 <?php
 
-// テーブルのカラムでtextを使っているカラムに対して日本語を入力すると、出力の際に文字化けする
-// そのためNCHARに変更するかfreebsd自体に日本語設定を行う必要あり。要件等
-
-
 	// Mysqlのユーザ情報入力
 	$user = 'root';
 	$password = '';
@@ -40,26 +36,11 @@ try {
 	// sqlの文字コード設定（必須）
 	$dbh->query('SET NAMES utf8');
 	
-	// 挿入sql文 inquiry_idをテーブルの件数＋１に合わせる必要あり
-	$sql = 'INSERT INTO inquiry (inquiry_id,user_name,category,mail_address,subject,sentence) VALUES (3, "'.$name.'", "'.$radio.'", "'.$mail.'", "'.$sub.'", "'.$content.'")';
+	// 挿入sql文 inquiry_idはmysql側で自動的に追加されるので必要なし
+	$sql = 'INSERT INTO inquiry (user_name,category,mail_address,subject,sentence) VALUES ("'.$name.'", "'.$radio.'", "'.$mail.'", "'.$sub.'", "'.$content.'")';
 	
 	$dbh->query($sql);
-	
-	
-/*
-	テータベースに格納されているか確認
-	あくまでテスト用なので気にしなくてよい
-	$sql = 'select * from inquiry';
-	foreach ($dbh->query($sql) as $row) {
-		// データテーブル内のカラムを指定して出力
-		print($row['inquiry_id'].'<br>');
-		print($row['user_name'].'<br>');
-		print($row['category'].'<br>');
-		print($row['mail_address'].'<br>');
-		print($row['subject'].'<br>');
-		print($row['sentence'].'<br>');
-    }
-*/
+
 	
 	// エラーがなければ結果表示
 	print ("以下の値が入力されました<br /><br />");
@@ -68,6 +49,12 @@ try {
 	print ("メールアドレス:$mail<br />");
 	print ("件名:$sub<br />");
 	print ("本文:$content<br />");
+
+
+	//入力完了した後の遷移の処理を追加して完成
+
+
+
 	
 // 例外処理
 } catch (PDOException $e) {
