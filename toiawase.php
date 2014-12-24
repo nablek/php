@@ -6,6 +6,15 @@
 <body>
 
 <?php
+
+// テーブルのカラムでtextを使っているカラムに対して日本語を入力すると、出力の際に文字化けする
+// そのためNCHARに変更するかfreebsd自体に日本語設定を行う必要あり。要件等
+
+
+	// Mysqlのユーザ情報入力
+	$user = 'root';
+	$password = '';
+	
 	// 各項目の値を取得
 	$radio = $_POST['q'];
 	$name = $_POST['name'];
@@ -23,33 +32,34 @@
 	} else if ($content == false) {
 		die ("error:本文が未記入です");
 	}
+
+try {
+	// systemというデータベースに接続，IPアドレスはlocalhost，user,passwordは変数を呼び出し
+	$dbh = new PDO('mysql:dbname=system;host=localhost', $user, $password);
+		
+	// sqlの文字コード設定（必須）
+	$dbh->query('SET NAMES utf8');
 	
-	// DBへ接続(DBのアドレス,ID,PWは未記入)
-	$db = mysql_connect("DBのアドレス", "ID", "PW");
-	if (!$db) {
-		die ("DBへ接続できませんでした");
-	}
-	// DBの選択(DB名は未記入)
-	$select = mysql_select_db("DB名", $db);
-	if (!$select) {
-		die ("DBの選択ができませんでした");
-	}
+	// 挿入sql文 inquiry_idをテーブルの件数＋１に合わせる必要あり
+	$sql = 'INSERT INTO inquiry (inquiry_id,user_name,category,mail_address,subject,sentence) VALUES (3, "'.$name.'", "'.$radio.'", "'.$mail.'", "'.$sub.'", "'.$content.'")';
 	
-	// SQL文をそれぞれの変数に格納(DB名,テーブル名,フィールド名は未記入)
-	/*$radio_sql = "INSERT INTO 'DB名'.'テーブル名'('フィールド名') VALUES('$radio');";
-	$name_sql = "INSERT INTO 'DB名'.'テーブル名'('フィールド名') VALUES('$name');";
-	$mail_sql = "INSERT INTO 'DB名'.'テーブル名'('フィールド名') VALUES('$mail');";
-	$sub_sql = "INSERT INTO 'DB名'.'テーブル名'('フィールド名') VALUES('$sub');";
-	$content_sql = "INSERT INTO 'DB名'.'テーブル名'('フィールド名') VALUES('$content');";
-	*/
-	$sql = "INSERT INTO 'DB名'.'テーブル名'
-			VALUES ('$radio', '$name', '$mail', '$sub', '$content');";
+	$dbh->query($sql);
 	
-	// SQL文実行
-	$result = mysql_query($sql);
-	if (!$result) {
-		die ("DBに格納できませんでした");
-	}
+	
+/*
+	テータベースに格納されているか確認
+	あくまでテスト用なので気にしなくてよい
+	$sql = 'select * from inquiry';
+	foreach ($dbh->query($sql) as $row) {
+		// データテーブル内のカラムを指定して出力
+		print($row['inquiry_id'].'<br>');
+		print($row['user_name'].'<br>');
+		print($row['category'].'<br>');
+		print($row['mail_address'].'<br>');
+		print($row['subject'].'<br>');
+		print($row['sentence'].'<br>');
+    }
+*/
 	
 	// エラーがなければ結果表示
 	print ("以下の値が入力されました<br /><br />");
@@ -58,24 +68,13 @@
 	print ("メールアドレス:$mail<br />");
 	print ("件名:$sub<br />");
 	print ("本文:$content<br />");
-	}
 	
-	// DBから切断
-	$db = mysql_close($db);
-	if (!$db) {
-		die ("DBから切断できませんでした");
-	}
-	
+// 例外処理
+} catch (PDOException $e) {
+	exit('データベースに接続できませんでした。' . $e->getMessage());
+}
+
+// データベース切断
+$pdo = null;
+
 ?>
-
-</body>
-</html>
-
-<!-- 今回参考にしたページ
-http://www.standpower.com/php_form.html
-http://p-ho.net/index.php?page=12
-http://www.ipc.hokusei.ac.jp/~z00104/php/php_form.html
-DB関連
-http://liginc.co.jp/designer/archives/119
-http://www.php-labo.net/tutorial/mysql/php.html
--->
