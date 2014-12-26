@@ -20,7 +20,7 @@
 	
 	// 必須項目に記入がない場合のエラー
 	if ($radio == false) {
-		print ("error:ジャンルが選択されていません<br />");
+		print ("error:ジャンルが未選択です<br />");
 		die ("<a href=toiawase.html>戻る<a>");
 	} else if ($name == false) {
 		print ("error:氏名が未記入です<br />");
@@ -54,11 +54,8 @@ try {
 	print ("件名:$sub<br />");
 	print ("本文:$content<br />");
 
-
 	//入力完了した後の遷移の処理を追加して完成
-
-
-
+	print ("<a href=top.html>トップページへ</a>");
 	
 // 例外処理
 } catch (PDOException $e) {
