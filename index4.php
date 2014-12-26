@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>V“ü¶Žx‰‡ƒVƒXƒeƒ€</title>
+<title>æ–°å…¥ç”Ÿæ”¯æ´ã‚·ã‚¹ãƒ†ãƒ </title>
 <style>
 h1 {
   margin: 0;
@@ -20,23 +20,23 @@ h1 {
 </head>
 <body>
 <div id="header">
-  <h1>V“ü¶Žx‰‡ƒVƒXƒeƒ€</h1>
+  <h1>æ–°å…¥ç”Ÿæ”¯æ´ã‚·ã‚¹ãƒ†ãƒ </h1>
 </div>
 <div id="main">
 
 <form action="login.php" method="post">
 ID<br><input type="text" name="id"><br>
-ƒpƒXƒ[ƒh<br><input type="password" name="password"><br>
-<input type="submit" value="‘—M">
+ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰<br><input type="password" name="password"><br>
+<input type="submit" value="é€ä¿¡">
 </form>
 
 </div>
 <div id="footer">
-  <a href="?p=top">ƒgƒbƒvƒy[ƒW</a> |
-  <a href="?p=party">”é–§‚Ìƒp[ƒeƒB[</a> |
-  <a href="?p=journey">”é–§‚ÌƒWƒƒ[ƒj[</a> |
-  <a href="?p=login?$page=login">ƒƒOƒCƒ“</a> |
-  <a href="logout.php">ƒƒOƒAƒEƒg</a>
+  <a href="?p=top">ãƒˆãƒƒãƒ—ãƒšãƒ¼ã‚¸</a> |
+  <a href="?p=party">ç§˜å¯†ã®ãƒ‘ãƒ¼ãƒ†ã‚£ãƒ¼</a> |
+  <a href="?p=journey">ç§˜å¯†ã®ã‚¸ãƒ£ãƒ¼ãƒ‹ãƒ¼</a> |
+  <a href="?p=login?$page=login">ãƒ­ã‚°ã‚¤ãƒ³</a> |
+  <a href="logout.php">ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ</a>
   
 </div>
 </body>
