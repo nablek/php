@@ -20,13 +20,17 @@
 	
 	// 必須項目に記入がない場合のエラー
 	if ($radio == false) {
-		die ("error:ジャンルが選択されていません");
+		print ("error:ジャンルが選択されていません<br />");
+		die ("<a href=toiawase.html>戻る<a>");
 	} else if ($name == false) {
-		die ("error:氏名が未記入です");
+		print ("error:氏名が未記入です<br />");
+		die ("<a href=toiawase.html>戻る</a>");
 	} else if ($sub == false) {
-		die ("error:件名が未記入です");
+		print ("error:件名が未記入です<br />");
+		die ("<a href=toiawase.html>戻る</a>");
 	} else if ($content == false) {
-		die ("error:本文が未記入です");
+		print ("error:本文が未記入です<br />");
+		die ("<a href=toiawase.html>戻る</a>");
 	}
 
 try {
