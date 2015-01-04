@@ -5,7 +5,6 @@ session_start();
 //次の遷移先の引数を格納する変数
 //$page = @$_GET['p'];
 
-
 //$pageの中身があるか、ない場合はtopを代入
 if (!$page) $page = 'top';
 
@@ -13,52 +12,70 @@ if (!$page) $page = 'top';
 if (!preg_match('/^[a-z]{1,8}$/', $page)) exit();
 
 //ログイン中かどうかのチェック、変数nameが設定されていればログイン中、ログイン中でなければ$pageにloginを代入してログインページへ飛ぶ
-if (!isset($_SESSION['name'])) {
+if (!isset($_SESSION['visited'])) {
+
+
 
 	//IDとパスワードが二つとも入力された時のみ以下のif文の内容を実行する
 	if (!empty($_POST['id']) && !empty($_POST['password'])) {
 
-		$id = "tanaka";
-		$id2 = "kawakami";
-		$id3 = "kagawa";
-		$password = "tanaka";
-		$password2 = "kawakami";
-		$password3 = "kagawa";
-		$input_id = $_POST['id'];
-		$input_password = $_POST['password'];
+	//入力されたIDとパスワードを各変数に格納
+	$input_id = $_POST['id'];
+	$input_password = $_POST['password'];
 
-	//後にデータベース照合で必要となるセレクト文
-	//select user_id, user_password from account where $input_id = user_id and $input_password = user_password;
+
+	//Mysqlのユーザ情報入力
+	$user ='root';
+	$password = '';
+
+	//データベース接続
+	$dbh = new PDO('mysql:dbname=system;host=localhost',$user, $password);
+
+	//sqlの文字コード設定
+	$dbh->query('SET NAMES utf8');
 	
+	//IDとパスワードをもとにaccountテーブルから検索
+	$sql = 'SELECT * FROM account WHERE user_id = "'.$input_id.'" AND password = "'.$input_password.'"';
 
-		//IDとパスワードが上で設定したものと同じならばログイン先のそれぞれのトップページへ飛ぶ
-		//間違っている場合は相応のエラーページへ飛ぶ
-		//何も入力されていない場合は何も入力されてませんというページへ飛ぶ
-		
-	if ($id == $input_id && $password == $input_password) {
-		$_SESSION['name'] = '田中';
-		$page = 'top';
-	} elseif ($id2 == $input_id && $password2 == $input_password) {
-			$_SESSION['name'] = '川上';
-			$page = 'syouyou';
-		} elseif ($id3 == $input_id && $password3 == $input_password) {
-			$_SESSION['name'] = '香川';
-			$page = 'ippan';
-	} elseif($id != $input_id || $password != $input_password) {
-			$page = 'error';
+		foreach ($dbh->query($sql) as $row) {
+			//データベース照合に一致した場合の処理（権限の確認および遷移処理）
+			$authority = $row['authority'];
+
+			//authorityの権限に合わせて各種ページへと遷移
+			switch ($authority) {
+				case '0':
+					$page = '/php/top.php';
+					$_SESSION['visited'] = 1;
+					break;
+				case '1':
+					//$page = '商用ページ';
+					$_SESSION['visited'] = 1;
+					break;
+				case '2':
+					//$page = '学内ページ';
+					$_SESSION['visited'] = 1;
+					break;
+				case '3':
+					//$page = '学外ページ';
+					$_SESSION['visited'] = 1;
+					break;
+				default:
+					print("入力内容に一致していません");
+					$_SESSION['visited'] = null;
+					break;
+			}
 		}
 	} else {
-		$page = 'notfound';
+		$page = 'notfound.php';
+		$_SESSION['visited'] = null;
 	}
-	 
-	
-	
-	//テスト用出力
-	//$page = 'top';
+
+
+} else {
+	$page = '/php/top.php';
 }
 
-
 //$pageに代入されたphpへ遷移
-require "$page.php"
+header("Location: ".$page);
 
 ?>

@@ -2,13 +2,29 @@
 <html>
 <head>
 <meta charset="UTF-8" >
-<title>おすすめ物件更新画面</title>
+<title>おすすめ情報更新画面</title>
 </head>
 <body>
+
+<style>
+#header, #footer {
+  background-color: #fed;
+  height: 60px;
+  padding: 10px;
+}
+#main {
+  background-color: #eee;
+  padding: 10px;
+}
+</style>
+
 <center>
-<h1>おすすめ物件更新画面</h1>
+<div id="header">
+<h1>おすすめ情報更新画面</h1>
+</div>
+
 <!-- mail.phpから「jukyoeve3.php」へ変更 -->
-<form  action="jukyoeve3.php" method="post"　enctype="multipart/form-data">
+<form  action="jukyoeve3.php" method="post" enctype="multipart/form-data">
 <table class="sample-table">
 		<!-- 見出し入力欄 -->
 		<tr>
@@ -51,5 +67,9 @@
 		<input type="submit" name="register" value="確認画面へ">
 		</div>
 </form>
+
+<div id="footer">
+  <a href="/html/top.html">トップページ</a>
+</div>
 </body>
 </html>

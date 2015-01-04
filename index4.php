@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>新入生支援システム</title>
+<title>KUTARCログイン画面</title>
 <style>
 h1 {
   margin: 0;
@@ -20,7 +20,7 @@ h1 {
 </head>
 <body>
 <div id="header">
-  <h1>新入生支援システム</h1>
+	<h1>新入生支援システム</h1>
 </div>
 <div id="main">
 
@@ -32,12 +32,7 @@ ID<br><input type="text" name="id"><br>
 
 </div>
 <div id="footer">
-  <a href="?p=top">トップページ</a> |
-  <a href="?p=party">秘密のパーティー</a> |
-  <a href="?p=journey">秘密のジャーニー</a> |
-  <a href="?p=login?$page=login">ログイン</a> |
-  <a href="logout.php">ログアウト</a>
-  
+  <a href="/html/top.html">トップページ</a>
 </div>
 </body>
 </html>
