@@ -35,7 +35,7 @@
 		<!-- 開催日程入力欄 -->
 		<tr>
 		<th>開催日程</th>
-		<td><input type="text" name="event_date" size="30"></td>
+		<td><input type="data" name="event_date" size="30"></td>
 		</tr>
 
 		<!-- 場所入力欄 -->
