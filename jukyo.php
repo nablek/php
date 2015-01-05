@@ -30,7 +30,7 @@ try {
 	// sqlの文字コード設定（必須）
 	$dbh->query('SET NAMES utf8');
 
-	$sql = 'select * from area where category = "'.$category.'"';
+	$sql = 'select * from area where category = "'.$category.'" order by shop_phonetic COLLATE utf8_unicode_ci';
 	
 	
 	foreach ($dbh->query($sql) as $row) {
