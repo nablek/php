@@ -175,7 +175,7 @@
 				<iframe src="/html/purpose.html" width="1200" height="1000"></iframe>
 				</div>
 				<div class="sampletab" id="sampletab2">
-				<iframe src="/html/jukyo.html" width="1200" height="1000"></iframe>
+				<iframe src="/php/jukyo.php" width="1200" height="1000"></iframe>
 				</div>
 
 				<div class="sampletab" id="sampletab3">
@@ -183,7 +183,7 @@
 				</div>
 
 				<div class="sampletab" id="sampletab4">
-				<iframe src="/html/seikatu.html" width="1200" height="1000"></iframe>
+				<iframe src="/php/seikatu.php" width="1200" height="1000"></iframe>
 				</div>
 
 				<div class="sampletab" id="sampletab5">
