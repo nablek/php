@@ -19,15 +19,19 @@
 <body>
 
 <?php
-//http://gihyo.jp/dev/serial/01/start-php/0007
-$_SESSION = array();
-$_SESSION['visited'] = null;
 
-setCookie('PHPSESSID');
+// 現在使用中のセッションの読み込み
+session_start();
+
+// セッション変数のクリア
+$_SESSION = array();
+
+// セッションの削除
 session_destroy();  
 
 ?>
-ログアウトしました。
+
+ログアウトが完了しました。
 
 <div id="footer">
   <a href="/php/top.php">トップページ</a>
