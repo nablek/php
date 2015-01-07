@@ -104,14 +104,14 @@
 
 			<!-- お問い合わせ -->
 			<div id="toi">
-				<img src="/picture/toiawase.png" style="width:10%; height:auto;"><a href="toiawase.html">お問い合わせ</a>
+				<img src="/picture/toiawase.png" style="width:10%; height:auto;"><a href="/html/toiawase.html">お問い合わせ</a>
 			</div>
 			<br>
 			<br>
 
 			<!-- よくある質問 -->
 			<div id="shitsumon">
-				<img src="/picture/hatena.png" style="width:10%; height:auto;" align="center"><a href="shitsumon.html">よくある質問</a>
+				<img src="/picture/hatena.png" style="width:10%; height:auto;" align="center"><a href="/html/shitsumon.html">よくある質問</a>
 			</div>
 			<br>
 			<br>
@@ -147,7 +147,7 @@
 			<!-- 管理者用ページへの遷移 -->
 			<div>
 				<!-- リンク先は該当ページ -->
-				<a href="kanritop">管理者用ページ</a>
+				<a href="/php/login.php">管理者用ページ</a>
 			</div>
 		</div>
 <!-- ナビゲーション終了 -->
@@ -197,7 +197,11 @@
 				<div class="sampletab" id="sampletab7">
 				<iframe src="/html/event.html" width="1200" height="1000"></iframe>
 				</div>
-
+				
+				<script type="text/javascript">
+					// デフォルトのタブを選択
+					ChangeTab('sampletab1');
+				</script>
 		</div>
 		</div>
 		</div>

@@ -35,7 +35,7 @@
 		<!-- 開催日程入力欄 -->
 		<tr>
 		<th>開催日程</th>
-		<td><input type="data" name="event_date" size="30"></td>
+		<td><input type="date" name="event_date" size="30"></td>
 		</tr>
 
 		<!-- 場所入力欄 -->
@@ -69,7 +69,7 @@
 </form>
 
 <div id="footer">
-  <a href="/html/top.html">トップページ</a>
+  <a href="/php/top.php">トップページ</a>
 </div>
 </body>
 </html>
