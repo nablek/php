@@ -18,23 +18,12 @@
 	$content = $_POST['content'];
 	$image = $_POST['filename'];
 
-
-
-
-
-
-
-
 	//$user_idの取得方法の検討！、event_dateがテーブルではdate(0000-00-00)型になっているので入力画面側もdate型に合わせること
 //おそらく修正完了↑
 	//テスト用に無理やりuser_idを設定、ログイン時のuser_idを取得し$user_id変数に代入することで以下のSQLは正常に動作
 	//ただし、挿入画像に関してはデータベースにカラムを設定していないため今回は書いていない
 	
 	$user_id = "JA";
-
-
-	
-	
 	
 	//必須項目に記入がない場合のエラー
 	if ($eventname == false){
@@ -60,7 +49,6 @@ try {
 	// 挿入sql文 inquiry_idはmysql側で自動的に追加されるので必要なし
 	$sql = 'UPDATE area SET event_name = "'.$eventname.'", event_date = "'.$eventdate.'", event_place = "'.$eventplace.'", content =  "'.$content.'" WHERE user_id = "'.$user_id.'"';
 
-
 	$dbh->query($sql);
 	
 	//エラーがない場合結果を表示
@@ -81,7 +69,6 @@ $pdo = null;
 
 //メッセージの出力
 echo "登録完了しました";
-
 
 //登録完了後のページ遷移処理を何かしら設定しないと画面が登録完了で止まる
 //header関数を使用して画面を遷移(Locationの後は「遷移先のファイル名」または./を削除して遷移先URLを記入）
