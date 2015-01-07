@@ -47,7 +47,7 @@ try {
 
 	
 	// エラーがなければ結果表示
-	print ("以下の値が入力されました<br /><br />");
+	print ("以下の内容で送信されました<br /><br />");
 	print ("ジャンル:$radio<br />");
 	print ("氏名:$name<br />");
 	print ("メールアドレス:$mail<br />");
@@ -55,7 +55,7 @@ try {
 	print ("本文:$content<br />");
 
 	//入力完了した後の遷移の処理を追加して完成
-	print ("<a href=top.html>トップページへ</a>");
+	print ("<a href=top.php>トップページへ</a>");
 	
 // 例外処理
 } catch (PDOException $e) {
