@@ -139,9 +139,9 @@
 				合格から入学までの流れ
 				<br>
 				<!-- フローチャートの画像を入れてね -->
-				<img src="/picture/logo.png" style="width:175px; height:175px;" align="center">
+				<img src="/picture/flow.png" style="width:175px; height:175px;" align="center">
 			</div>
-			
+
 			<br>
 			<br>
 			<!-- 管理者用ページへの遷移 -->
