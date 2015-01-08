@@ -6,14 +6,7 @@ session_start();
 //$page = @$_GET['p'];
 
 //$pageの中身があるか、ない場合はtopを代入
-<<<<<<< HEAD
-if (!$page) $page = 'top';
-
-//不正な文字が使われていないか、exit()はエラー画面へと遷移すること！！
-if (!preg_match('/^[a-z]{1,8}$/', $page)) exit();
-=======
 if (!$page) $page = '/php/top.php';
->>>>>>> FETCH_HEAD
 
 //ログイン中かどうかのチェック、変数nameが設定されていればログイン中、ログイン中でなければ$pageにloginを代入してログインページへ飛ぶ
 if (!isset($_SESSION['visited'])) {
