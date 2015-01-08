@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" >
-<title>おすすめ情報更新画面</title>
+<title>�������ߏ��X�V���</title>
 </head>
 <body>
 
@@ -20,40 +20,40 @@
 
 <center>
 <div id="header">
-<h1>おすすめ情報更新画面</h1>
+<h1>�������ߏ��X�V���</h1>
 </div>
 
-<!-- mail.phpから「jukyoeve3.php」へ変更 -->
+<!-- mail.php����ujukyoeve3.php�v�֕ύX -->
 <form  action="jukyoeve3.php" method="post" enctype="multipart/form-data">
 <table class="sample-table">
-		<!-- 見出し入力欄 -->
+		<!-- ���o�����͗� -->
 		<tr>
-		<th>見出し</th>
+		<th>���o��</th>
 		<td><input type="text" name="event_name" size="30"></td>
 		</tr>
 
-		<!-- 開催日程入力欄 -->
+		<!-- �J�Ó������͗� -->
 		<tr>
-		<th>開催日程</th>
+		<th>�J�Ó���</th>
 		<td><input type="date" name="event_date" size="30"></td>
 		</tr>
 
-		<!-- 場所入力欄 -->
+		<!-- �ꏊ���͗� -->
 		<tr>
-		<th>場所(住所)</th>
+		<th>�ꏊ(�Z��)</th>
 		<td><input type="text" name="event_place" size="30"></td>
 		</tr>
 
-		<!-- 内容入力欄 -->
+		<!-- ���e���͗� -->
 		<tr>
-		<th>内容</th>
+		<th>���e</th>
 		<td><textarea rows="10" cols="50" name="content"></textarea></td>
 		</tr>
 </table>
 
-		<!-- 画像挿入欄 -->
+		<!-- �摜�}���� -->
 		<tr>
-		<!-- 下の一文があるとページの遷移ができないため、一応コメントアウトしています -->
+		<!-- ���̈ꕶ������ƃy�[�W�̑J�ڂ��ł��Ȃ����߁A�ꉞ�R�����g�A�E�g���Ă��܂� -->
 		<!-- <form action="#" method="post" enctype="multipart/form-data"> -->
 		<p>
 		<input type="file" name="filename">
@@ -61,15 +61,15 @@
 		<!-- </form> -->
 		</tr>
 		
-		<!-- 送信ボタン -->
+		<!-- ���M�{�^�� -->
 		<div id="mainform-submit">
-		<!-- nameを送信ボタンから「register」へ、,valueを送信から「確認画面へ」に変更しました。  -->
-		<input type="submit" name="register" value="確認画面へ">
+		<!-- name�𑗐M�{�^������uregister�v�ցA,value�𑗐M����u�m�F��ʂցv�ɕύX���܂����B  -->
+		<input type="submit" name="register" value="�m�F��ʂ�">
 		</div>
 </form>
 
 <div id="footer">
-  <a href="/php/top.php">トップページ</a>
+  <a href="/php/top.php">�g�b�v�y�[�W</a>
 </div>
 </body>
 </html>
