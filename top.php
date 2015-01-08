@@ -107,13 +107,11 @@
 				<img src="/picture/toiawase.png" style="width:10%; height:auto;"><a href="/html/toiawase.html">お問い合わせ</a>
 			</div>
 			<br>
-			<br>
 
 			<!-- よくある質問 -->
 			<div id="shitsumon">
 				<img src="/picture/hatena.png" style="width:10%; height:auto;" align="center"><a href="/html/shitsumon.html">よくある質問</a>
 			</div>
-			<br>
 			<br>
 
 			<!-- ユーザ情報 -->
@@ -139,11 +137,32 @@
 				合格から入学までの流れ
 				<br>
 				<!-- フローチャートの画像を入れてね -->
-				<img src="/picture/flow.png" style="width:175px; height:175px;" align="center">
+				<a href="/picture/flow.png"><img src="/picture/flow.png" style="width:175px; height:175px;" align="center"></a>
 			</div>
+			<br>
+			<br>
 
+			<!-- 学内イベント情報追加 -->
+			<div id="gakunaievent">
+				<a href="/html/gakunaieve.html">学内イベント情報追加</a>
+			</div>
 			<br>
 			<br>
+			
+			<!-- 学外イベント情報追加 -->
+			<div id="gakugaievent">
+				<a href="/html/gakugaieve.html">学外イベント情報追加</a>
+			</div>
+			<br>
+			<br>
+			
+			<!-- 商用イベント情報追加 -->
+			<div id="syouyouevent">
+				<a href="/php/login.php">店舗イベント・おすすめ情報追加</a>
+			</div>
+			<br>
+			<br>
+
 			<!-- 管理者用ページへの遷移 -->
 			<div>
 				<!-- リンク先は該当ページ -->

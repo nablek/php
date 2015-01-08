@@ -58,7 +58,7 @@ if (!isset($_SESSION['visited'])) {
 				// 商用ユーザの場合
 				case '1':
 					$_SESSION['visited'] = 2;
-					$page = '/php/jukyoeve2.php';
+					$page = '/php/eventadd_out.php';
 					break;
 					
 				// 学内ユーザの場合
@@ -89,7 +89,7 @@ if (!isset($_SESSION['visited'])) {
 			$page = '/html/ktop.html';
 			break;
 		case '2':
-			$page = '/php/jukyoeve2.php';
+			$page = '/php/eventadd_out.php';
 			break;
 		default:
 			$page = '/php/top.php';

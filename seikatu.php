@@ -7,19 +7,17 @@
 
 
 	<script type="text/javascript">
-	<!--
 	function ChangeTab(tabname) {
-   	// 全部消す
-   	document.getElementById('tab1').style.display = 'none';
-   	document.getElementById('tab2').style.display = 'none';
-   	document.getElementById('tab3').style.display = 'none';
-   	document.getElementById('tab4').style.display = 'none';
+		// 全部消す
+		document.getElementById('tab1').style.display = 'none';
+		document.getElementById('tab2').style.display = 'none';
+		document.getElementById('tab3').style.display = 'none';
+		document.getElementById('tab4').style.display = 'none';
 
-   	// 指定箇所のみ表示
-   document.getElementById(tabname).style.display = 'block';
+		// 指定箇所のみ表示
+		document.getElementById(tabname).style.display = 'block';
 	}
-// -->
-</script>
+	</script>
 
 	<!-- リスト横並び -->
 	<style type="text/css">
@@ -63,6 +61,12 @@
 			hyoji("other");
 		?>
 		</div>
+		
+		<script type="text/javascript">
+			// デフォルトのタブを選択
+			ChangeTab('tab1');
+		</script>
+		
 	</div>
 </body>
 </html>
@@ -73,57 +77,57 @@ function hyoji($category) {
 	$user = 'root';
 	$password = '';
 
-try {
-	// systemというデータベースに接続，IPアドレスはlocalhost，user,passwordは変数を呼び出し
-	$dbh = new PDO('mysql:dbname=system;host=localhost', $user, $password);
+	try {
+		// systemというデータベースに接続，IPアドレスはlocalhost，user,passwordは変数を呼び出し
+		$dbh = new PDO('mysql:dbname=system;host=localhost', $user, $password);
 
-	// sqlの文字コード設定（必須）
-	$dbh->query('SET NAMES utf8');
+		// sqlの文字コード設定（必須）
+		$dbh->query('SET NAMES utf8');
 
-	$sql = 'select * from area where category = "'.$category.'" order by shop_phonetic COLLATE utf8_unicode_ci';
-	
-	
-	foreach ($dbh->query($sql) as $row) {
-	
-	echo'<div id="site-box">';
-		echo'<div id ="a-box">';
-			echo'<h2>'; print($row['shop_name']); echo'</h2>';
+		$sql = 'select * from area where category = "'.$category.'" order by shop_phonetic COLLATE utf8_unicode_ci';
 
-			echo'<div id="b-box">';
-				echo'<img src="/picture/logo.png" width="200px" height="200px" alt="代替テキスト"><br>';
+		foreach ($dbh->query($sql) as $row) {
+
+			echo'<br>';
+			echo'<div id="site-box">';
+				echo'<div id ="a-box">';
+					echo'<h2>'; print($row['shop_name']); echo'</h2>';
+
+					echo'<div id="b-box">';
+						echo'<img src="/picture/no_image.png" width="150px" height="150px" alt="代替テキスト"><br>';
+					echo'</div>';
+					echo'<div id="b-box">';
+					echo'<ul>';
+						echo'<li>住所 :'; print($row['address']); echo'</li>';
+						echo'<li>電話番号 :'; print($row['tel']); echo'</li>';
+						echo'<li>営業時間 : </li>';
+						echo'<li>定休日 : </li>';
+					echo'<li>URL : <a href="'; print($row['link']); echo'" target="_blank">'; print($row['link']); echo'</a> </li>';
+					echo'</ul>';
+					echo'</div>';
+				echo'</div>';
+
+				echo'<h2>イベント名</h2>';
+				echo'<div id="b-box">';
+				echo'<ul>';
+						echo'<li>場所（住所）</li>';
+						echo'<li>開催日時</li>';
+						echo'<li>イベント概要</li>';
+				echo'</ul>';
+				echo'</div>';
+				echo'<img src="/picture/no_image.png" width="150px" height="150px" alt="代替テキスト">';
 			echo'</div>';
-			echo'<div id="b-box">';
-			echo'<ul>';
-				echo'<li>住所 :'; print($row['address']); echo'</li>';
-				echo'<li>電話番号 :'; print($row['tel']); echo'</li>';
-				echo'<li>営業時間 : </li>';
-				echo'<li>定休日 : </li>';
-				echo'<li>URL : '; print($row['link']); echo'</li>';
-			echo'</ul>';
-			echo'</div>';
-		echo'</div>';
+			echo'<br>';
+		}
 
-		echo'<h2>イベント名</h2>';
-		echo'<div id="b-box">';
-		echo'<ul>';
-				echo'<li>場所（住所）</li>';
-				echo'<li>開催日時</li>';
-				echo'<li>イベント概要</li>';
-		echo'</ul>';
-		echo'</div>';
-		echo'<img src="/picture/logo.png" width="200px" height="200px" alt="代替テキスト">';
-	echo'</div>';
+		// データベース切断
+		$dbh = null;	
 
-	echo'<br>';
+	// 例外処理
+	}  catch (PDOEXception $e) {
+		exit('データベースに接続できませんでした。' . $e->getMessage());
 	}
-	
 
-// 例外処理
-}  catch (PDOEXception $e) {
-	exit('データベースに接続できませんでした。' . $e->getMessage());
 }
 
-// データベース切断
-$pdo = null;
-}
 ?>
