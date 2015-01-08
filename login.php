@@ -9,7 +9,7 @@ session_start();
 <<<<<<< HEAD
 if (!$page) $page = 'top';
 
-//不正な文字が使われていないか、exit()はエラー画面へと遷移すること！
+//不正な文字が使われていないか、exit()はエラー画面へと遷移すること！！
 if (!preg_match('/^[a-z]{1,8}$/', $page)) exit();
 =======
 if (!$page) $page = '/php/top.php';
