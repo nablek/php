@@ -6,15 +6,17 @@ session_start();
 //$page = @$_GET['p'];
 
 //$pageの中身があるか、ない場合はtopを代入
+<<<<<<< HEAD
 if (!$page) $page = 'top';
 
 //不正な文字が使われていないか、exit()はエラー画面へと遷移すること！
 if (!preg_match('/^[a-z]{1,8}$/', $page)) exit();
+=======
+if (!$page) $page = '/php/top.php';
+>>>>>>> FETCH_HEAD
 
 //ログイン中かどうかのチェック、変数nameが設定されていればログイン中、ログイン中でなければ$pageにloginを代入してログインページへ飛ぶ
 if (!isset($_SESSION['visited'])) {
-
-
 
 	//IDとパスワードが二つとも入力された時のみ以下のif文の内容を実行する
 	if (!empty($_POST['id']) && !empty($_POST['password'])) {
@@ -34,33 +36,49 @@ if (!isset($_SESSION['visited'])) {
 	//sqlの文字コード設定
 	$dbh->query('SET NAMES utf8');
 	
+	$sql = 'SELECT count(*) FROM account WHERE user_id = "'.$input_id.'" AND password = "'.$input_password.'"';
+	foreach ($dbh->query($sql) as $row) {
+		if ($row['count(*)'] != "1") {
+			print ("入力内容が正しくありません<br />");
+			die ("<a href=/php/index4.php>戻る<a>");
+		}
+	}
+	
 	//IDとパスワードをもとにaccountテーブルから検索
 	$sql = 'SELECT * FROM account WHERE user_id = "'.$input_id.'" AND password = "'.$input_password.'"';
 
 		foreach ($dbh->query($sql) as $row) {
 			//データベース照合に一致した場合の処理（権限の確認および遷移処理）
+			
 			$authority = $row['authority'];
-
-			//authorityの権限に合わせて各種ページへと遷移
+			
+			// authorityの権限に合わせて各種ページへと遷移
+			// SESSION['visited']にはどの権限でログイン中であるかの値を格納
 			switch ($authority) {
+			
+				// 管理者の場合
 				case '0':
-					$page = '/php/top.php';
 					$_SESSION['visited'] = 1;
+					$page = '/html/ktop.html';
 					break;
+					
+				// 商用ユーザの場合
 				case '1':
-					//$page = '商用ページ';
-					$_SESSION['visited'] = 1;
+					$_SESSION['visited'] = 2;
+					$page = '/php/jukyoeve2.php';
 					break;
+					
+				// 学内ユーザの場合
 				case '2':
-					//$page = '学内ページ';
-					$_SESSION['visited'] = 1;
+					$_SESSION['visited'] = 3;
 					break;
+					
+				// 学外ユーザの場合
 				case '3':
-					//$page = '学外ページ';
-					$_SESSION['visited'] = 1;
+					$_SESSION['visited'] = 4;
 					break;
 				default:
-					print("入力内容に一致していません");
+					print("入力内容が一致していません");
 					$_SESSION['visited'] = null;
 					break;
 			}
@@ -70,9 +88,20 @@ if (!isset($_SESSION['visited'])) {
 		$_SESSION['visited'] = null;
 	}
 
-
 } else {
-	$page = '/php/top.php';
+
+	// どの権限でログイン中であるかを判定
+	switch ($_SESSION['visited']) {
+		case '1':
+			$page = '/html/ktop.html';
+			break;
+		case '2':
+			$page = '/php/jukyoeve2.php';
+			break;
+		default:
+			$page = '/php/top.php';
+			break;
+	}
 }
 
 //$pageに代入されたphpへ遷移
