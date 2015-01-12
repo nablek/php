@@ -48,7 +48,7 @@
    以下の内容で登録します。修正がある場合は「戻る」を、この内容でよい場合は「登録」を押してください。<br><br>
    
    <!-- DBに格納するための値を登録完了画面の方で受け渡ししないといけないため、nameを設定。出力はphpで出力させる。 -->
-   店舗名:<input type="hidden"  name="shop_name" value=$view_shopname><?php echo $view_shopnamename; ?><br>
+   店舗名:<input type="hidden"  name="shop_name" value=$view_shopname><?php echo $view_shopname; ?><br>
    <br/>
    店舗名(ふりがな)：<input type="hidden" name="shop_phonetic" value=$view_phonetic><?php echo $view_phonetic; ?><br>
    <br/>
