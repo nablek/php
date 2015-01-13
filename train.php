@@ -3,8 +3,9 @@
 <meta charset="UTF-8">
 <title>交通機関情報</title>
 
-// 祝日の判定処理が未記入
-// 終電後の判定処理が未記入
+<!--
+祝日の判定処理が未記入
+-->
 
 <style>
 	#header, #footer {
@@ -97,25 +98,32 @@
 		}
 
 		// 検索時刻から次の出発時刻検索SQL
-		if ($start_station_id == 30) {
-			// 後免，野市間
-			$datatable = gomen_noichi_traffic_time;
+		if ($start_station_id == 10 && $end_station_id >= 30) {
+			// 出発が後免かつ到着が後免町～のいち
 			$sql = 'select * from gomen_noichi_traffic_time where day_division = "'.$day_division.'" and start_time > "'.$date.'" limit 1';
+		} else if ($start_station_id < 10 && $end_station_id >= 30) {
+			// 出発が土佐山田～後免かつ到着が後免町～のいち
+			$sql = 'select * from down_traffic_time where station_id = "'.$start_station_id.'" and day_division = "'.$day_division.'" and start_time > "'.$date.'" limit 1';
+		} else if ($start_station_id > 10 && $end_station_id >= 30) {
+			// 出発が土佐大津～高知かつ到着が後免町～のいち
+			$sql = 'select * from up_traffic_time where station_id = "'.$start_station_id.'" and day_division = "'.$day_division.'" and start_time > "'.$date.'" limit 1';
 		} else if ($start_station_id - $end_station_id > 0) {
 			// のぼり
-			$datatable = up_traffic_time;
 			$sql = 'select * from up_traffic_time where station_id = "'.$start_station_id.'" and day_division = "'.$day_division.'" and start_time > "'.$date.'" limit 1';
 		} else if ($start_station_id - $end_station_id < 0) {
 			// くだり
-			$datatable = down_traffic_time;
 			$sql = 'select * from down_traffic_time where station_id = "'.$start_station_id.'" and day_division = "'.$day_division.'" and start_time > "'.$date.'" limit 1';
-		} else {
-			// error
 		}
 
 		// 検索時刻の次の出発時間を取得
 		foreach ($dbh->query($sql) as $row) {
 			$start_time = $row['start_time'];
+		}
+		
+		// 終電時間を過ぎている場合の処理
+		// 文字を出力するだけになっているので，次の始発の時間を表示させると良いかも
+		if ($start_time == null) {
+			die("終電時刻を過ぎました");
 		}
 		
 ?>
