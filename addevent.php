@@ -109,7 +109,7 @@ function form_check() {
 		<!-- 内容入力欄 -->
 		<tr>
 		<th>内容</th>
-        <td><textarea rows="10" cols="50" autofocus required title="内容日程が未記入です" name="content"><?php echo $_POST["content"] ?></textarea></td>
+        <td><textarea rows="10" cols="50" autofocus required title="内容が未記入です" name="content"><?php echo $_POST["content"] ?></textarea></td>
 		</tr>
   </table>
 
