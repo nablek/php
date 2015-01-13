@@ -34,39 +34,39 @@ try {
 	
 	
 	foreach ($dbh->query($sql) as $row) {
+?>
+		<br>
+		<div id="site-box">
+			<div id ="a-box">
+				<h2 id="lineA"> <?php print($row['shop_name']); ?> </h2>
+				<div id="b-box">
+					<img src="/picture/no_image.png" width="150px" height="150px" alt="代替テキスト"><br>
+				</div>
+				<div id="b-box">
+				<ul>
+					<li>住所 : <?php print($row['address']); ?> </li>
+					<li>電話番号 : <?php print($row['tel']); ?> </li>
+					<li>営業時間 : <?php print($row['time']); ?> </li>
+					<li>定休日 : <?php print($row['close']); ?> </li>
+					<li>URL : <a href=" <?php print($row['link']); ?>" target="_blank"> <?php print($row['link']); ?> </a> </li>
+				</ul>
+				</div>
+			</div>
 
-		echo'<br>';	
-		echo'<div id="site-box">';
-			echo'<div id ="a-box">';
-				echo'<h2 id="lineA">'; print($row['shop_name']); echo'</h2>';
-
-				echo'<div id="b-box">';
-					echo'<img src="/picture/no_image.png" width="150px" height="150px" alt="代替テキスト"><br>';
-				echo'</div>';
-				echo'<div id="b-box">';
-				echo'<ul>';
-					echo'<li>住所 :'; print($row['address']); echo'</li>';
-					echo'<li>電話番号 :'; print($row['tel']); echo'</li>';
-					echo'<li>営業時間 : </li>';
-					echo'<li>定休日 : </li>';
-					echo'<li>URL : <a href="'; print($row['link']); echo'" target="_blank">'; print($row['link']); echo'</a> </li>';
-				echo'</ul>';
-				echo'</div>';
-			echo'</div>';
-
-			echo'<h2>おすすめ物件</h2>';
-			echo'<div id="b-box">';
-			echo'<h3>物件名</h3>';
-			echo'<ul>';
-					echo'<li>場所（住所）</li>';
-					echo'<li>部屋の広さ</li>';
-					echo'<li>家賃</li>';
-					echo'<li>駅から徒歩○分</li>';
-			echo'</ul>';
-			echo'</div>';
-			echo'<img src="/picture/no_image.png" width="150px" height="150px" alt="代替テキスト">';
-		echo'</div>';
-		echo'<br>';
+			<h2>おすすめ物件</h2>
+			<div id="b-box">
+			<h3>物件名</h3>
+			<ul>
+				<li>場所（住所）</li>
+				<li>部屋の広さ</li>
+				<li>家賃</li>
+				<li>駅から徒歩○分</li>
+			</ul>
+			</div>
+			<img src="/picture/no_image.png" width="150px" height="150px" alt="代替テキスト">
+		</div>
+		<br>
+<?php
 	}
 	
 	// データベース切断

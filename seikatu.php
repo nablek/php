@@ -87,44 +87,43 @@ function hyoji($category) {
 		$sql = 'select * from area where category = "'.$category.'" order by shop_phonetic COLLATE utf8_unicode_ci';
 
 		foreach ($dbh->query($sql) as $row) {
+?>
+			<br>
+			<div id="site-box">
+				<div id ="a-box">
+					<h2 id="lineA"> <?php print($row['shop_name']); ?> </h2>
+					<div id="b-box">
+						<img src="/picture/no_image.png" width="150px" height="150px" alt="代替テキスト"><br>
+					</div>
+					<div id="b-box">
+					<ul>
+						<li>住所 : <?php print($row['address']); ?> </li>
+						<li>電話番号 : <?php print($row['tel']); ?> </li>
+						<li>営業時間 : <?php print($row['time']); ?> </li>
+						<li>定休日 : <?php print($row['close']); ?> </li>
+					<li>URL : <a href=" <?php print($row['link']); ?>" target="_blank"> <?php print($row['link']); ?> </a> </li>
+					</ul>
+					</div>
+				</div>
 
-			echo'<br>';
-			echo'<div id="site-box">';
-				echo'<div id ="a-box">';
-					echo'<h2>'; print($row['shop_name']); echo'</h2>';
-
-					echo'<div id="b-box">';
-						echo'<img src="/picture/no_image.png" width="150px" height="150px" alt="代替テキスト"><br>';
-					echo'</div>';
-					echo'<div id="b-box">';
-					echo'<ul>';
-						echo'<li>住所 :'; print($row['address']); echo'</li>';
-						echo'<li>電話番号 :'; print($row['tel']); echo'</li>';
-						echo'<li>営業時間 : </li>';
-						echo'<li>定休日 : </li>';
-					echo'<li>URL : <a href="'; print($row['link']); echo'" target="_blank">'; print($row['link']); echo'</a> </li>';
-					echo'</ul>';
-					echo'</div>';
-				echo'</div>';
-
-				echo'<h2>イベント名</h2>';
-				echo'<div id="b-box">';
-				echo'<ul>';
-						echo'<li>場所（住所）</li>';
-						echo'<li>開催日時</li>';
-						echo'<li>イベント概要</li>';
-				echo'</ul>';
-				echo'</div>';
-				echo'<img src="/picture/no_image.png" width="150px" height="150px" alt="代替テキスト">';
-			echo'</div>';
-			echo'<br>';
+				<h2>イベント名</h2>
+				<div id="b-box">
+				<ul>
+					<li>場所（住所）</li>
+					<li>開催日時</li>
+					<li>イベント概要</li>
+				</ul>
+				</div>
+				<img src="/picture/no_image.png" width="150px" height="150px" alt="代替テキスト">
+			</div>
+			<br>
+<?php
 		}
-
 		// データベース切断
 		$dbh = null;	
 
 	// 例外処理
-	}  catch (PDOEXception $e) {
+	} catch (PDOEXception $e) {
 		exit('データベースに接続できませんでした。' . $e->getMessage());
 	}
 
