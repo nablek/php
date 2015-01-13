@@ -105,49 +105,49 @@ function form_check() {
 		<tr>
 		<th>店舗名</th>
 		<!-- valueのところに、見出し入力欄に入力した内容がエラーなどが起きてもデータを保持できるようにphpで設定。以下「開催日程」「場所」「内容」においても同様。 -->
-		<td><input type="text" autofocus required title="店舗名が未記入です" name="shop_name" size="30" value="<?php echo $_POST["shop_name"] ?>">
+		<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="店舗名が未記入です" name="shop_name" size="30" value="<?php echo $_POST["shop_name"] ?>">
 		</td>
 		</tr>
 
 		<!-- 店舗名（ふりがな）入力欄 -->
 		<tr>
 		<th>店舗名（ふりがな）</th>
-		<td><input type="text" autofocus required title="店舗名（ふりがな）が未記入です" name="shop_phonetic" size="30" value="<?php echo $_POST["shop_phonetic"] ?>">
+		<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="店舗名（ふりがな）が未記入です" name="shop_phonetic" size="30" value="<?php echo $_POST["shop_phonetic"] ?>">
 		</td>
 		</tr>
 
 		<!-- 住所入力欄 -->
 		<tr>
 		<th>住所</th>
-		<td><input type="text" autofocus required title="住所が未記入です" name="address" size="30" value="<?php echo $_POST["address"] ?>">  
+		<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="住所が未記入です" name="address" size="30" value="<?php echo $_POST["address"] ?>">  
 		</td>
 		</tr>
 
 		<!-- 電話番号入力欄 -->
 		<tr>
 		<th>電話番号</th>
-		<td><input type="date" autofocus required title="電話番号が未記入です" name="telephone" size="30" placeholder=" 0000-00-0000" value="<?php echo $_POST["telephone"] ?>">  
+		<td><input type="date" autofocus required aria-required="true" x-moz-errormessage="電話番号が未記入です" name="telephone" size="30" placeholder=" 0000-00-0000" value="<?php echo $_POST["telephone"] ?>">  
 		</td>
 		</tr>
 		
 		<!-- 営業時間入力欄 -->
 		<tr>
 		<th>営業時間</th>
-		<td><input type="text" autofocus required title="営業時間が未記入です" name="time" size="30" placeholder="0:00~0:00" value="<?php echo $_POST["time"] ?>">  
+		<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="営業時間が未記入です" name="time" size="30" placeholder="0:00~0:00" value="<?php echo $_POST["time"] ?>">  
 		</td>
 		</tr>
 		
 		<!-- 定休日入力欄 -->
 		<tr>
 		<th>定休日</th>
-		<td><input type="text" autofocus required title="定休日が未記入です" name="close" size="30" value="<?php echo $_POST["close"] ?>">  
+		<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="定休日が未記入です" name="close" size="30" value="<?php echo $_POST["close"] ?>">  
 		</td>
 		</tr>
 		
 		<!-- URL入力欄 -->
 		<tr>
 		<th>URL</th>
-		<td><input type="text" autofocus required title="URLが未記入です" name="link" placeholder="http://www.△△△・・・" value="<?php echo $_POST["link"] ?>">  
+		<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="URLが未記入です" name="link" placeholder="http://www.△△△・・・" value="<?php echo $_POST["link"] ?>">  
 		</td>
 		</tr>
   </table>

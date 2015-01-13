@@ -88,28 +88,28 @@ function form_check() {
 		<th>見出し</th>
 		<!-- HTMLでのエラーメッセージを表示させる「autofocus required」を input内に設定。以下「開催日程」「場所」「内容」においても同様。 -->
 		<!-- valueのところに、見出し入力欄に入力した内容がエラーなどが起きてもデータを保持できるようにphpで設定。以下「開催日程」「場所」「内容」においても同様。 -->
-		<td><input type="text" autofocus required title="見出しが未記入です" name="event_name" size="30" value="<?php echo $_POST["event_name"] ?>">
+		<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="見出しが未記入です" name="event_name" size="30" value="<?php echo $_POST["event_name"] ?>">
 		</td>
 		</tr>
 
 		<!-- 開催日程入力欄 -->
 		<tr>
 		<th>開催日程</th>
-		<td><input type="text" autofocus required title="開催日程が未記入です" name="event_date" size="30" placeholder=" 0月00日~0月00日 0:00~0:00" value="<?php echo $_POST["event_date"] ?>">
+		<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="開催日程が未記入です" name="event_date" size="30" placeholder=" 0月00日~0月00日 0:00~0:00" value="<?php echo $_POST["event_date"] ?>">
 		</td>
 		</tr>
 
 		<!-- 場所入力欄 -->
 		<tr>
 		<th>場所(住所)</th>
-		<td><input type="text" autofocus required title="場所（住所）が未記入です" name="event_place" size="30" value="<?php echo $_POST["event_place"] ?>">  
+		<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="場所（住所）が未記入です" name="event_place" size="30" value="<?php echo $_POST["event_place"] ?>">  
 		</td>
 		</tr>
 
 		<!-- 内容入力欄 -->
 		<tr>
 		<th>内容</th>
-        <td><textarea rows="10" cols="50" autofocus required title="内容が未記入です" name="content"><?php echo $_POST["content"] ?></textarea></td>
+        <td><textarea rows="10" cols="50" autofocus required aria-required="true" x-moz-errormessage="内容が未記入です" name="content"><?php echo $_POST["content"] ?></textarea></td>
 		</tr>
   </table>
 
