@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>KUTARCログアウトページ</title>
+<title>KUTARCログアウト画面</title>
 
 <style>
 #header, #footer {
@@ -35,7 +35,7 @@ session_destroy();
 
 <div id="footer">
   <a href="/php/top.php">トップページ</a>
-  <a href="/php/index4.php">ログイン画面</a>
+  <a href="/php/loginform.php">ログイン画面</a>
 
 </div>
 
