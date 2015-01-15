@@ -32,20 +32,20 @@ year, month, dateになっていますがテーブル内ではevent_dateにな�
 <!-- 後から修正されたところはわからないので、追加や訂正はお願いします。（add, conf, compそれぞれ） -->
 <?php 
 
-//Mysqlのユーザ情報入力
-$user ='root';
-$password = '';
+     //Mysqlのユーザ情報入力
+      $user ='root';
+      $password = '';
 
-//各項目の値を確認画面のページから取得
-$category = $_POST['category'];
-$sponsor_name = $_POST['sponsor_name'];
-$mailaddress = $_POST ['mailaddress'];
-$event_name = $_POST['event_name'];
-$year = $_POST['year'];
-$month = $_POST['month'];
-$day = $_POST ['day'];
-$event_place = $_POST['event_place'];
-$content = $_POST['event_content'];
+     //各項目の値を確認画面のページから取得
+      $category = $_POST['category'];
+      $sponsor_name = $_POST['sponsor_name'];
+      $mailaddress = $_POST ['mailaddress'];
+      $event_name = $_POST['event_name'];
+      $year = $_POST['year'];
+      $month = $_POST['month'];
+      $day = $_POST ['day'];
+      $event_place = $_POST['event_place'];
+      $content = $_POST['event_content'];
 
 //$user_idの取得方法の検討！
 //テスト用に無理やりuser_idを設定、ログイン時のuser_idを取得し$user_id変数に代入することで以下のSQLは正常に動作
