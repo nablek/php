@@ -24,6 +24,9 @@
   div#conten {
   text-align: center;
 }
+/* IMEモードを追加(safariでは動作しません) */
+input.example1 { ime-mode: active; }   /* 日本語入力→英数字入力(またその逆も然り）へ変更が可。←メールアドレスの入力欄以外に設置　class="example1" */
+input.example2 { ime-mode: disabled; } /* 日本語入力への変更が不可。英数字入力のみ。←これをメールアドレスの入力欄に設置 class="example2" */
 -->
 </style>
     
@@ -78,6 +81,7 @@
         	return true;
         }
     }
+
     -->
 	</script>
 	
@@ -104,19 +108,19 @@
 				<!-- 主催者名入力欄 -->
 				<tr>
 					<th>主催者名</th>
-					<td><input type="text" name="sponsor_name" size="50" value="<?php echo $_POST["sponsor_name"] ?>"></td>
+					<td><input type="text" name="sponsor_name" size="50" class="example1" value="<?php echo $_POST["sponsor_name"] ?>"></td>
                     <th><font size="1" color=blue>※学外イベントの追加をする人のみ入力必須</font></th>
 				</tr>
 				<!-- メールアドレス入力欄 -->
 				<tr>
 					<th>メールアドレス</th>
-					<td><input type="text" name="mailaddress" size="50" value="<?php echo $_POST["mailaddress"] ?>"></td>
+					<td><input type="text" name="mailaddress" placeholder="info@example.com" size="50" class="example2" value="<?php echo $_POST["mailaddress"] ?>"></td>
                     <th><font size="1" color=blue>※学外イベントの追加をする人のみ入力必須</font></th>
 				</tr>
 				<!-- イベント名入力欄 -->
 				<tr>
 					<th>イベント名</th>
-					<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="イベント名が未記入です" name="event_name" size="50" value="<?php echo $_POST["event_name"] ?>"></td>
+					<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="イベント名が未記入です" name="event_name" size="50" class="example1" value="<?php echo $_POST["event_name"] ?>"></td>
 				</tr>
 </table>
 			<!-- 開催年月日プルダウンボタン -->
@@ -184,13 +188,13 @@
 			<!-- イベント場所入力欄 -->
 				<tr>
 					<th>開催場所</th>
-					<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="開催場所が未記入です" name="event_place" size="50" value="<?php echo $_POST["event_place"] ?>"></td>
+					<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="開催場所が未記入です" name="event_place" size="50" class="example1" value="<?php echo $_POST["event_place"] ?>"></td>
 				</tr>
 				
 			<!-- イベント内容入力欄 -->
 				<tr>
 					<th>イベント内容</th>
-					<td><textarea autofocus required aria-required="true" x-moz-errormessage="内容が未記入です" rows="10" cols="50" name="event_content" value="<?php echo $_POST["event_content"] ?>"></textarea></td>
+					<td><textarea autofocus required aria-required="true" x-moz-errormessage="内容が未記入です" rows="10" cols="50" name="event_content" class="example1" value="<?php echo $_POST["event_content"] ?>"></textarea></td>
 				</tr>
 				</table>
 			
