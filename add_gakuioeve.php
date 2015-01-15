@@ -37,10 +37,10 @@
     function form_check() {
         var flag = 0;
 
-        if (document.eve_form.category.value == "") {   // カテゴリのラジオボタンが未選択の時
-    		flag = 1;
-    		window.alert("カテゴリが未選択です。");    //表示（ポップアップ）
-        }
+        if (document.eve_form.category[0].checked == false && document.eve_form.category[1].checked == false ) {   // カテゴリのラジオボタンが未選択の時
+    		flag = 1;   
+        	window.alert('ラジオボタンのいずれかをご選択ください');   //表示（ポップアップ）
+    }
 
         if (document.eve_form.event_name.value == "") {   // イベント名の入力欄が未記入の時
     		flag = 1;
@@ -92,14 +92,15 @@
 		<div id="content">
 		<form action="conf_gakuioeve.php" name="eve_form" method="post" enctype="multipart/form-data" onSubmit="return form_check()">
          <table>
+         <br>
          <!-- 学外/学内カテゴリ分け -->
-                <p>
+                <FORM name="category">
                     <INPUT type="radio" name="category" value="gakugai" autofocus required aria-required="true" x-moz-errormessage="カテゴリが未記入です。学外か学内どちらかにチェックを付けてください。">学外
                     <INPUT type="radio" name="category" value="gakunai">学内
                     <font size="2" color=red>※入力必須</font>
-                <p>               
+                </FORM>               
                 <br>
-
+<br>
 				<!-- 主催者名入力欄 -->
 				<tr>
 					<th>主催者名</th>
