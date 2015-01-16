@@ -41,9 +41,7 @@ year, month, dateになっていますがテーブル内ではevent_dateにな�
       $sponsor_name = $_POST['sponsor_name'];
       $mailaddress = $_POST ['mailaddress'];
       $event_name = $_POST['event_name'];
-      $year = $_POST['year'];
-      $month = $_POST['month'];
-      $day = $_POST ['day'];
+      $event_date = $_POST['event_date'];
       $event_place = $_POST['event_place'];
       $content = $_POST['event_content'];
 

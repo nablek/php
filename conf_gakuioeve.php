@@ -12,9 +12,7 @@
    $view_sponame = $_POST["sponsor_name"];
    $view_mail = $_POST["mailaddress"];
    $view_evename = $_POST["event_name"];
-   $view_year = $_POST["year"];
-   $view_month = $_POST["month"];
-   $view_day = $_POST["day"];
+   $view_evedate = $_POST["event_date"];
    $view_eveplace = $_POST["event_place"];
    $view_evecontent = $_POST["event_content"];
    
@@ -62,9 +60,7 @@ print <<<EOM
    <br/>
    イベント名：<input type="hidden"  name="event_name" value="$view_evename">$view_evename<br>
    <br/>
-   <input type="hidden"  name="year" value="$view_year">$view_year 年
-   <input type="hidden"  name="month" value="$view_month">$view_month 月
-   <input type="hidden"  name="day" value="$view_day">$view_day 日<br>
+   イベント名：<input type="hidden"  name="event_date" value="$view_evedate">$view_evedate<br>
    <br/>
    開催場所:<input type="hidden" name="event_place" value="$view_eveplace">$view_eveplace<br>
    <br/>

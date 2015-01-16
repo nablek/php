@@ -31,9 +31,7 @@ input.example2 { ime-mode: disabled; } /* 日本語入力への変更が不可�
 </style>
     
     <title>学外/学内イベント情報追加更新ページ</title>
-	<!-- 日付取得 -->
-	<script src="date.js" type="text/javascript"></script>
-	
+
 	<!-- ポップアップエラー表示 -->
 <script type="text/javascript">
     <!--
@@ -50,21 +48,11 @@ input.example2 { ime-mode: disabled; } /* 日本語入力への変更が不可�
     		window.alert("イベント名が未記入です。");    //表示（ポップアップ）
         }
 
-        if (document.eve_form.year.value == "") {   // 開催年の入力欄が未選択の時
+        if (document.eve_form.event_date.value == "") {   // 開催日の入力欄が未選択の時
     		flag = 1;
-    		window.alert("年が未選択です。");    //表示（ポップアップ）
+    		window.alert("開催日が未選択です。");    //表示（ポップアップ）
         }
 
-        if (document.eve_form.month.value == "") {   // 月の入力欄が未選択の時
-    		flag = 1;
-    		window.alert("月が未選択です。");    //表示（ポップアップ）
-        }
-
-        if (document.eve_form.day.value == "") {   // 日の入力欄が未選択の時
-    		flag = 1;
-    		window.alert("日が未選択です。");    //表示（ポップアップ）
-        }
-        
         if (document.eve_form.event_place.value == "") {   // 開催場所の入力欄が未記入の場合
     		flag = 1;
     		window.alert("場所が未記入です。");   //表示（ポップアップ）
@@ -104,87 +92,42 @@ input.example2 { ime-mode: disabled; } /* 日本語入力への変更が不可�
                     <font size="2" color=red>※入力必須</font>
                 </FORM>               
                 <br>
-<br>
+                <br>
 				<!-- 主催者名入力欄 -->
 				<tr>
 					<th>主催者名</th>
-					<td><input type="text" name="sponsor_name" size="50" class="example1" value="<?php echo $_POST["sponsor_name"] ?>"></td>
-                    <th><font size="1" color=blue>※学外イベントの追加をする人のみ入力必須</font></th>
+					<td><input type="text" name="sponsor_name" size="50" class="example1" value="<?php echo $_POST["sponsor_name"] ?>"></td>                            
 				</tr>
+				<table>
+				<div align="right">
+				<th><font size="1" color=blue>※学外イベントの追加をする人のみ入力必須</font></th>
+				</div>
+				</table> 
+		
 				<!-- メールアドレス入力欄 -->
 				<tr>
 					<th>メールアドレス</th>
 					<td><input type="text" name="mailaddress" placeholder="info@example.com" size="50" class="example2" value="<?php echo $_POST["mailaddress"] ?>"></td>
-                    <th><font size="1" color=blue>※学外イベントの追加をする人のみ入力必須</font></th>
 				</tr>
+				<table>
+				<div align="right">
+				<th><font size="1" color=blue>※学外イベントの追加をする人のみ入力必須</font></th>
+				</div>
+				</table>
+			</table>	
+			<table>	
 				<!-- イベント名入力欄 -->
 				<tr>
 					<th>イベント名</th>
 					<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="イベント名が未記入です" name="event_name" size="50" class="example1" value="<?php echo $_POST["event_name"] ?>"></td>
 				</tr>
-</table>
-			<!-- 開催年月日プルダウンボタン -->
-                <p>
-                    <th>開催日:</th>
-					<select name="year" id="year" autofocus required aria-required="true" x-moz-errormessage="年 が未選択です">
-					    <option value="">---</option>
-						<option value="2015">2015</option>
-						<option value="2016">2016</option>
-						<option value="2017">2017</option>
-					</select>
-					<label for="year">年</label>
-					<select name="month" id="month" autofocus required aria-required="true" x-moz-errormessage="月 が未選択です">
-					    <option value="">---</option>
-						<option value="01">1</option>
-						<option value="02">2</option>
-						<option value="03">3</option>
-						<option value="04">4</option>
-						<option value="05">5</option>
-						<option value="06">6</option>
-						<option value="07">7</option>
-						<option value="08">8</option>
-						<option value="09">9</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
-					</select>
-					<label for="month">月</label>
-					<select name="day" id="day" autofocus required aria-required="true" x-moz-errormessage="日 が未選択です">
-					    <option value="">---</option>
-						<option value="01">1</option>
-						<option value="02">2</option>
-						<option value="03">3</option>
-						<option value="04">4</option>
-						<option value="05">5</option>
-						<option value="06">6</option>
-						<option value="07">7</option>
-						<option value="08">8</option>
-						<option value="09">9</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
-						<option value="13">13</option>
-						<option value="14">14</option>
-						<option value="15">15</option>
-						<option value="16">16</option>
-						<option value="17">17</option>
-						<option value="18">18</option>
-						<option value="19">19</option>
-						<option value="20">20</option>
-						<option value="21">21</option>
-						<option value="22">22</option>
-						<option value="23">23</option>
-						<option value="24">24</option>
-						<option value="25">25</option>
-						<option value="26">26</option>
-						<option value="27">27</option>
-						<option value="28">28</option>
-						<option value="29">29</option>
-						<option value="30">30</option>
-						<option value="31">31</option>
-					</select><label for="day">日</label>
-				</p>
-<table>
+
+              	<!-- 開催日入力欄 -->
+				<tr>
+					<th>開催日</th>
+					<td><input type="text" autofocus required aria-required="true" x-moz-errormessage="開催日が未記入です" name="event_date" placeholder="201☆年△月○日" size="50" class="example1" value="<?php echo $_POST["event_date"] ?>"></td>
+				</tr>
+
 			<!-- イベント場所入力欄 -->
 				<tr>
 					<th>開催場所</th>
