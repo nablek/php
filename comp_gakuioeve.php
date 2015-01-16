@@ -31,51 +31,49 @@
 year, month, dateになっていますがテーブル内ではevent_dateになっているのでよくわかりませんでした。なにかあるときはいってください。 -->
 <!-- 後から修正されたところはわからないので、追加や訂正はお願いします。（add, conf, compそれぞれ） -->
 <?php 
+	session_start();
+	$user_id = $_SESSION['id'];
 
-     //Mysqlのユーザ情報入力
-      $user ='root';
-      $password = '';
+	//Mysqlのユーザ情報入力
+	$user ='root';
+	$password = '';
 
-     //各項目の値を確認画面のページから取得
-      $category = $_POST['category'];
-      $sponsor_name = $_POST['sponsor_name'];
-      $mailaddress = $_POST ['mailaddress'];
-      $event_name = $_POST['event_name'];
-      $event_date = $_POST['event_date'];
-      $event_place = $_POST['event_place'];
-      $content = $_POST['event_content'];
+	//各項目の値を確認画面のページから取得
+	$category = $_SESSION['visited'];
+	$sponsor_name = $_POST['sponsor_name'];
+	$mailaddress = $_POST ['mailaddress'];
+	$event_name = $_POST['event_name'];
+	$event_date = $_POST['event_date'];
+	$event_place = $_POST['event_place'];
+	$content = $_POST['event_content'];
+	$upfile_dir = $_POST['upfile'];
 
-//$user_idの取得方法の検討！
-//テスト用に無理やりuser_idを設定、ログイン時のuser_idを取得し$user_id変数に代入することで以下のSQLは正常に動作
-//ただし、挿入画像に関してはデータベースにカラムを設定していないため今回は書いていない
-
-$user_id = "JA";
+	// データテーブルへの画像リンク挿入
+	if ($upfile_dir != null) {
+		$upfile_dir = '/userpicture/'.$user_id.'/'.$_POST['upfile'].'';
+	}
+	
 
 try {
-// ★データベース関連はここから↓
 	// データベースに接続（データベース名は未記入、,IPアドレス→localhost, userとpasswordは変数呼び出し）
 	$dbh = new PDO('mysql:dbname=system;host=localhost',$user, $password);
 
 	//sqlの文字コード設定
 	$dbh->query('SET NAMES utf8');
 	
-    //★この辺りから、テーブル名やshop_idのようなものは、商用の時のままなので変更お願いします。
-	// shop_nameがデータベースのあるかないかを確認する
-	$sql = "SELECT shop_id as id FROM area WHERE shop_name = '$shop_name'";
+	$sql = "SELECT user_id as id FROM inoutside_event WHERE user_id = '$user_id'";
 	$result = $dbh->query($sql)->fetchAll();
 
 	if (empty($result[0]['id']))
 	{
-		//formのすべての値をいれる（現在擬似のデータベースの上から順番に記入しているので、合わせてください。)
-		//実行した際に、ちゃんとINSERTとUPDATEの処理ができているか、select * form area;（ターミナル）で確認お願いします。
 		// ここからInsert（データがまだ入っていないときの新規追加）
-		$sql = "INSERT INTO area (shop_name, shop_phonetic, category, tel, address, link, info_name, event_date, event_place, content) VALUES ('$shop_name', '$shop_phonetic', '$category', '$telphone', '$address', '$link', '$evename', '$evedate', '$eveplace', '$contents')";
+		$sql = "INSERT INTO inoutside_event (user_id, sponsor_name, event_name, event_date, event_place, event_content, authority, mail_address, picture)
+				VALUES ('$user_id', '$sponsor_name', '$event_name', '$event_date', '$event_place', '$content', '$category', '$mailaddress', '$upfile_dir')";
 		$dbh->query($sql);
 	} else {
 		// Update（データがすでに入っているときの更新）
-		//shop_nameはいらない。←お店の名前はそうそう変わらないし、ここが変わるのは新規登録するようなものだから）
-		$shop_id = $result[0]['id'];
-		$sql ="UPDATE area SET shop_name = '$shop_name', shop_phonetic = '$shop_phonetic', category = '$category', tel ='$telphone', address ='$address', link = '$link', info_name = '$evename', event_date = '$evedate', event_place = '$eveplace', content = '$contents' WHERE shop_id = $shop_id";
+		$sql = "UPDATE inoutside_event SET sponsor_name = '$sponsor_name', event_name = '$event_name', event_date = '$event_date', event_place = '$event_place', 
+				event_content = '$content', authority = '$category', mail_address = '$mailaddress', picture = '$upfile_dir' WHERE user_id = '$user_id'";
 		$dbh->query($sql);
 	}
 	

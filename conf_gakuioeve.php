@@ -8,14 +8,57 @@
 <!-- 入力フォームからのデータの受け渡し -->
 <?php
 //$_POSTを使用して入力した各データを表示用変数にそれぞれ格納
-   $view_category = $_POST["category"];
-   $view_sponame = $_POST["sponsor_name"];
-   $view_mail = $_POST["mailaddress"];
-   $view_evename = $_POST["event_name"];
-   $view_evedate = $_POST["event_date"];
-   $view_eveplace = $_POST["event_place"];
-   $view_evecontent = $_POST["event_content"];
-   
+	$view_category = $_POST["category"];
+	$view_sponame = $_POST["sponsor_name"];
+	$view_mail = $_POST["mailaddress"];
+	$view_evename = $_POST["event_name"];
+	$view_evedate = $_POST["event_date"];
+	$view_eveplace = $_POST["event_place"];
+	$view_evecontent = $_POST["event_content"];
+	$view_file = $_FILES["upfile"]["name"];
+
+	session_start();
+	$user_id = $_SESSION['id'];
+	if ($_SESSION['id'] == null) {
+		header("Location: ".'/php/loginform.php');
+	} else if ($_SESSION['visited'] == 2) {
+		header("Location: ".'/php/top.php');
+	}
+	
+	$user = 'root';
+	$password = '';
+	
+try {
+	// データベースに接続（データベース名は未記入、,IPアドレス→localhost, userとpasswordは変数呼び出し）
+	$dbh = new PDO('mysql:dbname=system;host=localhost',$user, $password);
+
+	//sqlの文字コード設定
+	$dbh->query('SET NAMES utf8');
+
+	// user_idがデータベースのあるかないかを確認する
+	$sql = "SELECT user_id as id FROM inoutside_event WHERE user_id = '$user_id'";
+	$result = $dbh->query($sql)->fetchAll();
+
+	if (empty($result[0]['id'])) {
+		// 初めて登録しているときuserpictureフォルダにuser_idのフォルダを作成
+		// user_id名のフォルダにファイルを格納する
+		$path = '../userpicture/'.$user_id.'';
+		mkdir($path,0755);
+	}
+
+	//データベース切断
+	$dbh = null;
+
+//例外処理
+} catch (PDOEXception $e) {
+	exit('データベースに接続できませんでした。' . $e->getMessage());
+}
+	// ファイルの格納（本来であれば次の格納で行うべきではあるが次のPHPをまたぐと一時ファイルが消えるため仕方ない
+	if (is_uploaded_file($_FILES['upfile']['tmp_name'])) {
+		if (move_uploaded_file($_FILES['upfile']['tmp_name'], "../userpicture/" .$user_id ."/" .$_FILES['upfile']['name'])) {
+			chmod("../userpicture/" .$user_id ."/" .$_FILES['upfile']['name'], 0644);
+		}
+	}
 ?>
 
 <!-- ここから確認画面のHTML -->
@@ -66,12 +109,23 @@ print <<<EOM
    <br/>
    開催場所:<input type="hidden" name="event_content" value="$view_evecontent">$view_evecontent<br>
    <br/>
-  		
-   <input type="button" value="戻る" onclick="history.go(-1)">
+   アップロードファイル:<input type="hidden"  name="upfile" value="$view_file">$view_file<br>
+   <br/>
+   
    <input type="submit" name="set" value="登録"> 
    </form>     
 EOM;
 ?>
+
+   <form action="add_gakuioeve.php" method="POST">
+   <input type="hidden"  name="sponsor_name" value="<?php echo $view_sponame ?>">
+   <input type="hidden"  name="mailaddress" value="<?php echo $view_mail ?>">
+   <input type="hidden"  name="event_name" value="<?php echo $view_evename ?>">
+   <input type="hidden"  name="event_date" value="<?php echo $view_evedate ?>">
+   <input type="hidden"  name="event_place" value="<?php echo $view_eveplace ?>">
+   <input type="hidden"  name="event_content" value="<?php echo $view_evecontent ?>">
+   <input type="submit" value="戻る">
+   </form>
   
  <!-- トップページに遷移するためのボタンを設置 -->  
    <div id="footer">
