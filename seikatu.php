@@ -93,9 +93,9 @@ function hyoji($category) {
 				<div id ="a-box">
 					<h2 id="lineA"> <?php print($row['shop_name']); ?> </h2>
 					<div id="b-box">
-						<img src="/picture/no_image.png" width="150px" height="150px" alt="代替テキスト"><br>
+						<img src="/picture/no_image.png" width="200px" height="150px" alt="代替テキスト"><br>
 					</div>
-					<div id="b-box">
+					<div id="c-box">
 					<ul>
 						<li>住所 : <?php print($row['address']); ?> </li>
 						<li>電話番号 : <?php print($row['tel']); ?> </li>
@@ -107,14 +107,14 @@ function hyoji($category) {
 				</div>
 
 				<h2>イベント名</h2>
-				<div id="b-box">
+				<div id="d-box">
 				<ul>
 					<li>場所（住所）</li>
 					<li>開催日時</li>
 					<li>イベント概要</li>
 				</ul>
 				</div>
-				<img src="/picture/no_image.png" width="150px" height="150px" alt="代替テキスト">
+				<img src="/picture/no_image.png" width="240px" height="180px" alt="代替テキスト">
 			</div>
 			<br>
 <?php
