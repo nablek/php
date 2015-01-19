@@ -66,11 +66,7 @@
 		<br>
 		<div id="mainform-submit">
 		<!-- 編集ボタン -->
-			<input type="button" name="編集ボタン" value="アカウント情報の編集" onclick="location.href='/html/userhensyu.html'" >
-		<!-- ログアウトボタン-->
-			<input type="submit" name="ログアウトボタン" value="ログアウト"onclick="location.href='/php/logout.php'">
-		<!-- TOPへ戻るボタン -->
-			<input type="button" name="TOPボタン" value="TOPへ" onclick="location.href='/php/top.php'">
+			<input type="button" name="編集ボタン" value="アカウント情報の編集" onclick="location.href='/php/userhensyu.php'" >
 		<!-- 閉じるボタン -->
 			<input type="button" value="閉じる" onclick="window.close()">
 		</div>
