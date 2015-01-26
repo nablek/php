@@ -12,7 +12,7 @@
 	div.sample div.sampletabbox { margin: 0px; padding: 0px; width: 1200px; height: 800px; clear: left; }
 	/* タブ部分 */
 	div.sample p.sampletabs { margin: 0px; padding: 0px; }
-	div.sample p.sampletabs a { display: block; width: 4em; float: left; margin: 0px 15px 0px 15px; padding: 10px; text-align: center; }
+	div.sample p.sampletabs a { display: block; width: 4em; float: left; margin: 0px 10px 0px 10px; padding: 5px; text-align: center; }
 	div.sample p.sampletabs a.sampletab1 { background-color: white; color: black; }
 	div.sample p.sampletabs a.sampletab2 { background-color: white; color: black; }
 	div.sample p.sampletabs a.sampletab3 { background-color: white; color: black; }
@@ -20,6 +20,8 @@
 	div.sample p.sampletabs a.sampletab5 { background-color: white; color: black; }
 	div.sample p.sampletabs a.sampletab6 { background-color: white; color: black; }
 	div.sample p.sampletabs a.sampletab7 { background-color: white; color: black; }
+	div.sample p.sampletabs a.sampletab8 { background-color: white; color: black; }
+	div.sample p.sampletabs a.sampletab9 { background-color: white; color: black; }
 	div.sample p.sampletabs a:hover { color: yellow; }
 	/* 対応表示領域 */
 	div.sample div.sampletab { height: 500px; overflow: auto; clear: left; }
@@ -30,6 +32,8 @@
 	div.sample div#sampletab5 { border: 2px solid gray; background-color: white; }
 	div.sample div#sampletab6 { border: 2px solid gray; background-color: white; }
 	div.sample div#sampletab7 { border: 2px solid gray; background-color: white; }
+	div.sample div#sampletab8 { border: 2px solid gray; background-color: white; }
+	div.sample div#sampletab9 { border: 2px solid gray; background-color: white; }
 	div.sample div.sampletab p { margin: 0.5em; }
 	/* 装飾（今回のテクニックとは無関係） */
 	div.sample div.sampletab ul, div.sampletab ol { margin-top: 0.5em; margin-bottom: 0.5em; }
@@ -43,6 +47,8 @@
 	p.example5 {font-family: "ＭＳ Ｐゴシック","ＭＳ ゴシック",sans-serif;}
 	p.example6 {font-family: "ＭＳ Ｐゴシック","ＭＳ ゴシック",sans-serif;}
 	p.example7 {font-family: "ＭＳ Ｐゴシック","ＭＳ ゴシック",sans-serif;}
+	p.example8 {font-family: "ＭＳ Ｐゴシック","ＭＳ ゴシック",sans-serif;}
+	p.example9 {font-family: "ＭＳ Ｐゴシック","ＭＳ ゴシック",sans-serif;}
 
 	<!--
 	.sampletab1 {list-style:url(tatesen.png);}
@@ -52,6 +58,8 @@
 	.sampletab5 {list-style:url(tatesen.png);}
 	.sampletab6 {list-style:url(tatesen.png);}
 	.sampletab7 {list-style:url(tatesen.png);}
+	.sampletab8 {list-style:url(tatesen.png);}
+	.sampletab9 {list-style:url(tatesen.png);}
 	-->
 </style>
 
@@ -66,6 +74,8 @@ function ChangeTab(tabname) {
 	document.getElementById('sampletab5').style.display = 'none';
 	document.getElementById('sampletab6').style.display = 'none';
 	document.getElementById('sampletab7').style.display = 'none';
+	document.getElementById('sampletab8').style.display = 'none';
+	document.getElementById('sampletab9').style.display = 'none';
 	// 指定箇所のみ表示
 	if(tabname) {
 		document.getElementById(tabname).style.display = 'block';
@@ -97,15 +107,58 @@ function disp(url){
 	<!-- ナビゲーション開始 -->
 	<!-- サイドバー -->
 	<div id="nav">
-		<!-- 検索  -->
-		<div style="margin: 0.5em;">
-			<form target="_blank" method="get" action="http://search.allabout.co.jp/s.php">
-				<input type="text" title="検索したい内容を入力してください" name="qs" />
-				<input type="submit" value="検索" />
-				<input type="hidden" value="sjis" name="ie" />
-			</form>
+		<br>
+		<!-- ユーザ情報 -->
+		<!-- ここにユーザ情報展開 -->
+		<div id="user">
+			<img src="/picture/user.png" style="width:10%; height:auto;" align="center">ユーザ情報
+			
+			
+		<?php
+			session_start();
+				//Mysqlのユーザ情報入力
+				$user ='root';
+				$password = '';
+
+				//データベース接続
+				$dbh = new PDO('mysql:dbname=system;host=localhost',$user, $password);
+
+				//sqlの文字コード設定
+				$dbh->query('SET NAMES utf8');
+
+				//IDをもとにaccountテーブルから検索
+				$sql = 'SELECT * FROM account WHERE user_id = "'.$_SESSION['id'].'"';
+
+				foreach ($dbh->query($sql) as $row) {
+					// ユーザ情報表示
+		?>
+					<h4>ユーザID：<?php print($row['user_id']); ?> </h4>
+					<h4>ユーザ名：<?php print($row['user_name']); ?> </h4>
+					<h4>メールアドレス：<br><?php print($row['mail_address']); ?> </h4>
+					<div id="mainform-submit">
+					<!-- 編集ボタン -->
+					<input type="button" name="編集ボタン" value="アカウント情報の編集" onclick="location.href='/php/userhensyu.php'" >
+					</div>
+		<?php } ?>
 		</div>
 		<br>
+
+		<!-- phpにてログイン状態によりどちらかを表示 -->
+		<?php
+			if (!isset($_SESSION['visited'])) {
+				echo '<a href="/php/loginform.php"><u>ログイン</a>';
+			} else {
+				echo'<a href="/php/logout.php"><u>ログアウト</a>';
+			}
+		?>
+		<br>
+		<br>
+
+
+		<!-- はじめに -->
+		<div id="first">
+			<img src="/picture/yazirushi.png" style="width:10%; height:auto;"><a href="/html/first.html">はじめに</a>
+		</div>
 		<br>
 
 		<!-- お問い合わせ -->
@@ -119,52 +172,24 @@ function disp(url){
 			<img src="/picture/hatena.png" style="width:10%; height:auto;" align="center"><a href="/html/shitsumon.html">よくある質問</a>
 		</div>
 		<br>
-
-		<!-- ユーザ情報 -->
-		<div id="user">
-			<img src="/picture/user.png" style="width:10%; height:auto;" align="center"><a href="/php/user.php" target="window_name" onClick="disp('/php/user.php')">ユーザ情報</a>
-		</div>
-		<br>
-		
-		<!-- phpにてログイン状態によりどちらかを表示 -->
-		<?php
-			session_start();
-			if (!isset($_SESSION['visited'])) {
-				echo '<a href="/php/loginform.php"><u>ログイン</a>';
-			} else {
-				echo'<a href="/php/logout.php"><u>ログアウト</a>';
-			}
-		?>
-		<br>
 		<br>
 
-		<!-- フローチャート -->
-		<div id="flowchart">
-			合格から入学までの流れ
-			<br>
-			<!-- フローチャートの画像を入れてね -->
-			<a href="/picture/flow.png"><img src="/picture/flow.png" style="width:175px; height:175px;" align="center"></a>
-		</div>
-		<br>
-		<br>
-
-		<!-- 学内イベント情報追加 -->
-		<div id="gakunaievent">
-			<a href="/html/gakunaieve.html">学内イベント情報追加</a>
-		</div>
-		<br>
-		<br>
-
-		<!-- 学外イベント情報追加 -->
-		<div id="gakugaievent">
-			<a href="/html/gakugaieve.html">学外イベント情報追加</a>
+		<!-- 学内・学外イベント情報追加 -->
+		<div id="gakuievent">
+			<a href="/php/add_gakuioeve.php">学内・学外イベント情報追加</a>
 		</div>
 		<br>
 		<br>
 
 		<!-- 商用イベント情報追加 -->
-		<div id="syouyouevent">
-			<a href="/php/login.php">店舗イベント・おすすめ情報追加</a>
+		<div id="shouyoubase">
+			<a href="/php/add_base_business.php">店舗基本情報追加</a>
+		</div>
+		<br>
+		<br>
+		
+		<div id="shouyouevent">
+			<a href="/php/add_event_business.php">店舗イベント情報追加</a>
 		</div>
 		<br>
 		<br>
@@ -183,12 +208,14 @@ function disp(url){
 		<div id="header">
 			<ul class="nl clearFix">
 				<li class="first"><a onclick="ChangeTab('sampletab1'); return false;" class="sampletab1"  href="#sampletab1">TOP</a></li>
-				<li><a onclick="ChangeTab('sampletab2'); return false;" class="sampletab2"  href="#sampletab2">住居</a></li>
-				<li><a onclick="ChangeTab('sampletab3'); return false;" class="sampletab3"  href="#sampletab3">公共施設</a></li>
-				<li><a onclick="ChangeTab('sampletab4'); return false;" class="sampletab4"  href="#sampletab4">生活施設</a></li>
-				<li><a onclick="ChangeTab('sampletab5'); return false;" class="sampletab5"  href="#sampletab5">金融機関</a></li>
-				<li><a onclick="ChangeTab('sampletab6'); return false;" class="sampletab6"  href="#sampletab6">交通機関</a></li>
-				<li><a onclick="ChangeTab('sampletab7'); return false;" class="sampletab7"  href="#sampletab7">イベント</a></li>
+				<li><a onclick="ChangeTab('sampletab2'); return false;" class="sampletab2"  href="#sampletab2">合格したら</a></li>
+				<li><a onclick="ChangeTab('sampletab3'); return false;" class="sampletab3"  href="#sampletab3">住居</a></li>
+				<li><a onclick="ChangeTab('sampletab4'); return false;" class="sampletab4"  href="#sampletab4">公共施設</a></li>
+				<li><a onclick="ChangeTab('sampletab5'); return false;" class="sampletab5"  href="#sampletab5">生活施設</a></li>
+				<li><a onclick="ChangeTab('sampletab6'); return false;" class="sampletab6"  href="#sampletab6">金融機関</a></li>
+				<li><a onclick="ChangeTab('sampletab7'); return false;" class="sampletab7"  href="#sampletab7">交通機関</a></li>
+				<li><a onclick="ChangeTab('sampletab8'); return false;" class="sampletab7"  href="#sampletab7">イベント</a></li>
+				<li><a onclick="ChangeTab('sampletab9'); return false;" class="sampletab7"  href="#sampletab7">使い方!</a></li>
 			</ul>
 			<hr class="none">
 		</div>
@@ -196,25 +223,31 @@ function disp(url){
 			<div class="sampletabbox">
 				<div class="sampletab">
 					<div class="sampletab" id="sampletab1">
-						<iframe src="/html/purpose.html" width="1200" height="1000"></iframe>
+						<iframe src="/html/purpose.html" width="1200" height="800"></iframe>
 					</div>
 					<div class="sampletab" id="sampletab2">
-						<iframe src="/php/jukyo.php" width="1200" height="1000"></iframe>
+						<iframe src="/php/jukyo.php" width="1200" height="850"></iframe>
 					</div>
 					<div class="sampletab" id="sampletab3">
-						<iframe src="/html/koukyou.html" width="1200" height="1000"></iframe>
+						<iframe src="/php/jukyo.php" width="1200" height="850"></iframe>
 					</div>
 					<div class="sampletab" id="sampletab4">
-						<iframe src="/php/seikatu.php" width="1200" height="1000"></iframe>
+						<iframe src="/php/koukyou.php" width="1200" height="850"></iframe>
 					</div>
 					<div class="sampletab" id="sampletab5">
-						<iframe src="/html/money.html" width="1200" height="1000"></iframe>
+						<iframe src="/php/seikatu.php" width="1200" height="850"></iframe>
 					</div>
 					<div class="sampletab" id="sampletab6">
-						<iframe src="/php/koutuu.php" width="1200" height="1000"></iframe>
+						<iframe src="/php/money.php" width="1200" height="850"></iframe>
 					</div>
 					<div class="sampletab" id="sampletab7">
-						<iframe src="/html/event.html" width="1200" height="1000"></iframe>
+						<iframe src="/php/koutuu.php" width="1200" height="850"></iframe>
+					</div>
+					<div class="sampletab" id="sampletab8">
+						<iframe src="/php/event.php" width="1200" height="850"></iframe>
+					</div>
+					<div class="sampletab" id="sampletab9">
+						<iframe src="/html/event.html" width="1200" height="850"></iframe>
 					</div>
 				</div>
 			</div>
