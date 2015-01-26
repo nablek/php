@@ -8,9 +8,9 @@
 <title>TOP</title>
 
 <style type="text/css">
-	/* è¡¨ç¤ºé ˜åŸŸå…¨ä½“ */
+	/* •\¦—Ìˆæ‘S‘Ì */
 	div.sample div.sampletabbox { margin: 0px; padding: 0px; width: 1200px; height: 800px; clear: left; }
-	/* ã‚¿ãƒ–éƒ¨åˆ† */
+	/* ƒ^ƒu•”•ª */
 	div.sample p.sampletabs { margin: 0px; padding: 0px; }
 	div.sample p.sampletabs a { display: block; width: 4em; float: left; margin: 0px 10px 0px 10px; padding: 5px; text-align: center; }
 	div.sample p.sampletabs a.sampletab1 { background-color: white; color: black; }
@@ -21,9 +21,8 @@
 	div.sample p.sampletabs a.sampletab6 { background-color: white; color: black; }
 	div.sample p.sampletabs a.sampletab7 { background-color: white; color: black; }
 	div.sample p.sampletabs a.sampletab8 { background-color: white; color: black; }
-	div.sample p.sampletabs a.sampletab9 { background-color: white; color: black; }
 	div.sample p.sampletabs a:hover { color: yellow; }
-	/* å¯¾å¿œè¡¨ç¤ºé ˜åŸŸ */
+	/* ‘Î‰•\¦—Ìˆæ */
 	div.sample div.sampletab { height: 500px; overflow: auto; clear: left; }
 	div.sample div#sampletab1 { border: 2px solid gray; background-color: white; }
 	div.sample div#sampletab2 { border: 2px solid gray; background-color: white; }
@@ -33,23 +32,20 @@
 	div.sample div#sampletab6 { border: 2px solid gray; background-color: white; }
 	div.sample div#sampletab7 { border: 2px solid gray; background-color: white; }
 	div.sample div#sampletab8 { border: 2px solid gray; background-color: white; }
-	div.sample div#sampletab9 { border: 2px solid gray; background-color: white; }
 	div.sample div.sampletab p { margin: 0.5em; }
-	/* è£…é£¾ï¼ˆä»Šå›ã®ãƒ†ã‚¯ãƒ‹ãƒƒã‚¯ã¨ã¯ç„¡é–¢ä¿‚ï¼‰ */
+	/* ‘•üi¡‰ñ‚ÌƒeƒNƒjƒbƒN‚Æ‚Í–³ŠÖŒWj */
 	div.sample div.sampletab ul, div.sampletab ol { margin-top: 0.5em; margin-bottom: 0.5em; }
 	div.sample div.sampletab li { line-height: 1.35; margin-bottom: 0px; margin-top: 0px; }
 	div.sample div.sampletab ul li { list-style-type: disc; }
 	div.sample div.sampletab p.tabhead { font-weight: bold; border-bottom: 3px double gray; }
-	p.sampletab1 {font-family: "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯","ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯",sans-serif;}
-	p.example2 {font-family: "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯","ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯",sans-serif;}
-	p.example3 {font-family: "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯","ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯",sans-serif;}
-	p.example4 {font-family: "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯","ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯",sans-serif;}
-	p.example5 {font-family: "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯","ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯",sans-serif;}
-	p.example6 {font-family: "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯","ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯",sans-serif;}
-	p.example7 {font-family: "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯","ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯",sans-serif;}
-	p.example8 {font-family: "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯","ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯",sans-serif;}
-	p.example9 {font-family: "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯","ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯",sans-serif;}
-
+	p.sampletab1 {font-family: "‚l‚r ‚oƒSƒVƒbƒN","‚l‚r ƒSƒVƒbƒN",sans-serif;}
+	p.example2 {font-family: "‚l‚r ‚oƒSƒVƒbƒN","‚l‚r ƒSƒVƒbƒN",sans-serif;}
+	p.example3 {font-family: "‚l‚r ‚oƒSƒVƒbƒN","‚l‚r ƒSƒVƒbƒN",sans-serif;}
+	p.example4 {font-family: "‚l‚r ‚oƒSƒVƒbƒN","‚l‚r ƒSƒVƒbƒN",sans-serif;}
+	p.example5 {font-family: "‚l‚r ‚oƒSƒVƒbƒN","‚l‚r ƒSƒVƒbƒN",sans-serif;}
+	p.example6 {font-family: "‚l‚r ‚oƒSƒVƒbƒN","‚l‚r ƒSƒVƒbƒN",sans-serif;}
+	p.example7 {font-family: "‚l‚r ‚oƒSƒVƒbƒN","‚l‚r ƒSƒVƒbƒN",sans-serif;}
+	p.example8 {font-family: "‚l‚r ‚oƒSƒVƒbƒN","‚l‚r ƒSƒVƒbƒN",sans-serif;}
 	<!--
 	.sampletab1 {list-style:url(tatesen.png);}
 	.sampletab2 {list-style:url(tatesen.png);}
@@ -59,14 +55,13 @@
 	.sampletab6 {list-style:url(tatesen.png);}
 	.sampletab7 {list-style:url(tatesen.png);}
 	.sampletab8 {list-style:url(tatesen.png);}
-	.sampletab9 {list-style:url(tatesen.png);}
 	-->
 </style>
 
 <script type="text/javascript">
 <!--
 function ChangeTab(tabname) {
-	// å…¨éƒ¨æ¶ˆã™
+	// ‘S•”Á‚·
 	document.getElementById('sampletab1').style.display = 'none';
 	document.getElementById('sampletab2').style.display = 'none';
 	document.getElementById('sampletab3').style.display = 'none';
@@ -75,14 +70,13 @@ function ChangeTab(tabname) {
 	document.getElementById('sampletab6').style.display = 'none';
 	document.getElementById('sampletab7').style.display = 'none';
 	document.getElementById('sampletab8').style.display = 'none';
-	document.getElementById('sampletab9').style.display = 'none';
-	// æŒ‡å®šç®‡æ‰€ã®ã¿è¡¨ç¤º
+	// w’è‰ÓŠ‚Ì‚İ•\¦
 	if(tabname) {
 		document.getElementById(tabname).style.display = 'block';
 	}
 }
 function disp(url){
-	// ãƒŸãƒ‹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦è¡¨ç¤º
+	// ƒ~ƒjƒEƒBƒ“ƒhƒE•\¦
 	window.open(url, "window_name", "width=600,height=500,scrollbars=yes");
 }
 // -->
@@ -91,131 +85,131 @@ function disp(url){
 </head>
 <body>
 
-	<!-- ã‚³ãƒ³ãƒ†ãƒŠé–‹å§‹ -->
+	<!-- ƒRƒ“ƒeƒiŠJn -->
 	<div id="container">
 
 
-	<!-- ãƒ˜ãƒƒãƒ€é–‹å§‹ -->
+	<!-- ƒwƒbƒ_ŠJn -->
 	<div id="header">
-		<!-- ãƒ­ã‚´ã®è¡¨ç¤º -->
+		<!-- ƒƒS‚Ì•\¦ -->
 		<a href="/php/top.php">
-			<img src="/picture/logo.png" alt="ãƒ­ã‚´" style="width:100%;height:150px;max-width:1200px;">
+			<img src="/picture/logo.png" alt="ƒƒS" style="width:100%;height:150px;max-width:1200px;">
 		</a>
 	</div>
-	<!-- ãƒ˜ãƒƒãƒ€çµ‚äº† -->
+	<!-- ƒwƒbƒ_I—¹ -->
 
-	<!-- ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³é–‹å§‹ -->
-	<!-- ã‚µã‚¤ãƒ‰ãƒãƒ¼ -->
+	<!-- ƒiƒrƒQ[ƒVƒ‡ƒ“ŠJn -->
+	<!-- ƒTƒCƒhƒo[ -->
 	<div id="nav">
 		<br>
-		<!-- ãƒ¦ãƒ¼ã‚¶æƒ…å ± -->
-		<!-- ã“ã“ã«ãƒ¦ãƒ¼ã‚¶æƒ…å ±å±•é–‹ -->
+		<!-- ƒ†[ƒUî•ñ -->
+		<!-- ‚±‚±‚Éƒ†[ƒUî•ñ“WŠJ -->
 		<div id="user">
-			<img src="/picture/user.png" style="width:10%; height:auto;" align="center">ãƒ¦ãƒ¼ã‚¶æƒ…å ±
+			<img src="/picture/user.png" style="width:10%; height:auto;" align="center">ƒ†[ƒUî•ñ
 			
 			
 		<?php
 			session_start();
-				//Mysqlã®ãƒ¦ãƒ¼ã‚¶æƒ…å ±å…¥åŠ›
+				//Mysql‚Ìƒ†[ƒUî•ñ“ü—Í
 				$user ='root';
 				$password = '';
-
-				//ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ¥ç¶š
+				//ƒf[ƒ^ƒx[ƒXÚ‘±
 				$dbh = new PDO('mysql:dbname=system;host=localhost',$user, $password);
-
-				//sqlã®æ–‡å­—ã‚³ãƒ¼ãƒ‰è¨­å®š
+				//sql‚Ì•¶šƒR[ƒhİ’è
 				$dbh->query('SET NAMES utf8');
-
-				//IDã‚’ã‚‚ã¨ã«accountãƒ†ãƒ¼ãƒ–ãƒ«ã‹ã‚‰æ¤œç´¢
+				//ID‚ğ‚à‚Æ‚Éaccountƒe[ƒuƒ‹‚©‚çŒŸõ
 				$sql = 'SELECT * FROM account WHERE user_id = "'.$_SESSION['id'].'"';
-
 				foreach ($dbh->query($sql) as $row) {
-					// ãƒ¦ãƒ¼ã‚¶æƒ…å ±è¡¨ç¤º
+					// ƒ†[ƒUî•ñ•\¦
 		?>
-					<h4>ãƒ¦ãƒ¼ã‚¶IDï¼š<?php print($row['user_id']); ?> </h4>
-					<h4>ãƒ¦ãƒ¼ã‚¶åï¼š<?php print($row['user_name']); ?> </h4>
-					<h4>ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ï¼š<br><?php print($row['mail_address']); ?> </h4>
+					<h4>ƒ†[ƒUIDF<?php print($row['user_id']); ?> </h4>
+					<h4>ƒ†[ƒU–¼F<?php print($row['user_name']); ?> </h4>
+					<h4>ƒ[ƒ‹ƒAƒhƒŒƒXF<br><?php print($row['mail_address']); ?> </h4>
 					<div id="mainform-submit">
-					<!-- ç·¨é›†ãƒœã‚¿ãƒ³ -->
-					<input type="button" name="ç·¨é›†ãƒœã‚¿ãƒ³" value="ã‚¢ã‚«ã‚¦ãƒ³ãƒˆæƒ…å ±ã®ç·¨é›†" onclick="location.href='/php/userhensyu.php'" >
+					<!-- •ÒWƒ{ƒ^ƒ“ -->
+					<input type="button" name="•ÒWƒ{ƒ^ƒ“" value="ƒAƒJƒEƒ“ƒgî•ñ‚Ì•ÒW" onclick="location.href='/php/userhensyu.php'" >
 					</div>
 		<?php } ?>
 		</div>
 		<br>
 
-		<!-- phpã«ã¦ãƒ­ã‚°ã‚¤ãƒ³çŠ¶æ…‹ã«ã‚ˆã‚Šã©ã¡ã‚‰ã‹ã‚’è¡¨ç¤º -->
+		<!-- php‚É‚ÄƒƒOƒCƒ“ó‘Ô‚É‚æ‚è‚Ç‚¿‚ç‚©‚ğ•\¦ -->
 		<?php
 			if (!isset($_SESSION['visited'])) {
-				echo '<a href="/php/loginform.php"><u>ãƒ­ã‚°ã‚¤ãƒ³</a>';
+				echo '<a href="/php/loginform.php"><u>ƒƒOƒCƒ“</a>';
 			} else {
-				echo'<a href="/php/logout.php"><u>ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ</a>';
+				echo'<a href="/php/logout.php"><u>ƒƒOƒAƒEƒg</a>';
 			}
 		?>
 		<br>
 		<br>
 
 
-		<!-- ã¯ã˜ã‚ã« -->
+		<!-- ‚Í‚¶‚ß‚É -->
 		<div id="first">
-			<img src="/picture/yazirushi.png" style="width:10%; height:auto;"><a href="/html/first.html">ã¯ã˜ã‚ã«</a>
+			<img src="/picture/yazirushi.png" style="width:10%; height:auto;"><a href="/html/first.html">‚Í‚¶‚ß‚É</a>
 		</div>
 		<br>
+		
+		<!-- g‚¢•û -->
+		<div id="how">
+			<image src_="/picture/yazirushi.png" style="width:10%; height:auto;"><a href="/html/tukaikata.html">‚±‚ÌƒTƒCƒg‚Ìg‚¢•û</a>
+		</div>
 
-		<!-- ãŠå•ã„åˆã‚ã› -->
+		<!-- ‚¨–â‚¢‡‚í‚¹ -->
 		<div id="toi">
-			<img src="/picture/toiawase.png" style="width:10%; height:auto;"><a href="/html/toiawase.html">ãŠå•ã„åˆã‚ã›</a>
+			<img src="/picture/toiawase.png" style="width:10%; height:auto;"><a href="/html/toiawase.html">‚¨–â‚¢‡‚í‚¹</a>
 		</div>
 		<br>
 
-		<!-- ã‚ˆãã‚ã‚‹è³ªå• -->
+		<!-- ‚æ‚­‚ ‚é¿–â -->
 		<div id="shitsumon">
-			<img src="/picture/hatena.png" style="width:10%; height:auto;" align="center"><a href="/html/shitsumon.html">ã‚ˆãã‚ã‚‹è³ªå•</a>
+			<img src="/picture/hatena.png" style="width:10%; height:auto;" align="center"><a href="/html/shitsumon.html">‚æ‚­‚ ‚é¿–â</a>
 		</div>
 		<br>
 		<br>
 
-		<!-- å­¦å†…ãƒ»å­¦å¤–ã‚¤ãƒ™ãƒ³ãƒˆæƒ…å ±è¿½åŠ  -->
+		<!-- Šw“àEŠwŠOƒCƒxƒ“ƒgî•ñ’Ç‰Á -->
 		<div id="gakuievent">
-			<a href="/php/add_gakuioeve.php">å­¦å†…ãƒ»å­¦å¤–ã‚¤ãƒ™ãƒ³ãƒˆæƒ…å ±è¿½åŠ </a>
+			<a href="/php/add_gakuioeve.php">Šw“àEŠwŠOƒCƒxƒ“ƒgî•ñ’Ç‰Á</a>
 		</div>
 		<br>
 		<br>
 
-		<!-- å•†ç”¨ã‚¤ãƒ™ãƒ³ãƒˆæƒ…å ±è¿½åŠ  -->
+		<!-- ¤—pƒCƒxƒ“ƒgî•ñ’Ç‰Á -->
 		<div id="shouyoubase">
-			<a href="/php/add_base_business.php">åº—èˆ—åŸºæœ¬æƒ…å ±è¿½åŠ </a>
+			<a href="/php/add_base_business.php">“X•ÜŠî–{î•ñ’Ç‰Á</a>
 		</div>
 		<br>
 		<br>
 		
 		<div id="shouyouevent">
-			<a href="/php/add_event_business.php">åº—èˆ—ã‚¤ãƒ™ãƒ³ãƒˆæƒ…å ±è¿½åŠ </a>
+			<a href="/php/add_event_business.php">“X•ÜƒCƒxƒ“ƒgî•ñ’Ç‰Á</a>
 		</div>
 		<br>
 		<br>
 
-		<!-- ç®¡ç†è€…ç”¨ãƒšãƒ¼ã‚¸ã¸ã®é·ç§» -->
+		<!-- ŠÇ—Ò—pƒy[ƒW‚Ö‚Ì‘JˆÚ -->
 		<div>
-			<!-- ãƒªãƒ³ã‚¯å…ˆã¯è©²å½“ãƒšãƒ¼ã‚¸ -->
-			<img src="/picture/neji.png" style="width:10%; height:auto;" align="center"><a href="/php/login.php">ç®¡ç†è€…ç”¨ãƒšãƒ¼ã‚¸</a>
+			<!-- ƒŠƒ“ƒNæ‚ÍŠY“–ƒy[ƒW -->
+			<img src="/picture/neji.png" style="width:10%; height:auto;" align="center"><a href="/php/login.php">ŠÇ—Ò—pƒy[ƒW</a>
 		</div>
 	</div>
-	<!-- ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº† -->
+	<!-- ƒiƒrƒQ[ƒVƒ‡ƒ“I—¹ -->
 
-	<!-- ãƒ¡ã‚¤ãƒ³ã‚«ãƒ©ãƒ é–‹å§‹ -->
+	<!-- ƒƒCƒ“ƒJƒ‰ƒ€ŠJn -->
 	<div id="content">
-	<!-- ã‚¿ãƒ–ã®è¡¨ç¤º -->
+	<!-- ƒ^ƒu‚Ì•\¦ -->
 		<div id="header">
 			<ul class="nl clearFix">
 				<li class="first"><a onclick="ChangeTab('sampletab1'); return false;" class="sampletab1"  href="#sampletab1">TOP</a></li>
-				<li><a onclick="ChangeTab('sampletab2'); return false;" class="sampletab2"  href="#sampletab2">åˆæ ¼ã—ãŸã‚‰</a></li>
-				<li><a onclick="ChangeTab('sampletab3'); return false;" class="sampletab3"  href="#sampletab3">ä½å±…</a></li>
-				<li><a onclick="ChangeTab('sampletab4'); return false;" class="sampletab4"  href="#sampletab4">å…¬å…±æ–½è¨­</a></li>
-				<li><a onclick="ChangeTab('sampletab5'); return false;" class="sampletab5"  href="#sampletab5">ç”Ÿæ´»æ–½è¨­</a></li>
-				<li><a onclick="ChangeTab('sampletab6'); return false;" class="sampletab6"  href="#sampletab6">é‡‘èæ©Ÿé–¢</a></li>
-				<li><a onclick="ChangeTab('sampletab7'); return false;" class="sampletab7"  href="#sampletab7">äº¤é€šæ©Ÿé–¢</a></li>
-				<li><a onclick="ChangeTab('sampletab8'); return false;" class="sampletab7"  href="#sampletab7">ã‚¤ãƒ™ãƒ³ãƒˆ</a></li>
-				<li><a onclick="ChangeTab('sampletab9'); return false;" class="sampletab7"  href="#sampletab7">ä½¿ã„æ–¹!</a></li>
+				<li><a onclick="ChangeTab('sampletab2'); return false;" class="sampletab2"  href="#sampletab2">‡Ši‚µ‚½‚ç</a></li>
+				<li><a onclick="ChangeTab('sampletab3'); return false;" class="sampletab3"  href="#sampletab3">Z‹</a></li>
+				<li><a onclick="ChangeTab('sampletab4'); return false;" class="sampletab4"  href="#sampletab4">Œö‹¤{İ</a></li>
+				<li><a onclick="ChangeTab('sampletab5'); return false;" class="sampletab5"  href="#sampletab5">¶Šˆ{İ</a></li>
+				<li><a onclick="ChangeTab('sampletab6'); return false;" class="sampletab6"  href="#sampletab6">‹à—Z‹@ŠÖ</a></li>
+				<li><a onclick="ChangeTab('sampletab7'); return false;" class="sampletab7"  href="#sampletab7">Œğ’Ê‹@ŠÖ</a></li>
+				<li><a onclick="ChangeTab('sampletab8'); return false;" class="sampletab7"  href="#sampletab7">ƒCƒxƒ“ƒg</a></li>
 			</ul>
 			<hr class="none">
 		</div>
@@ -244,22 +238,18 @@ function disp(url){
 						<iframe src="/php/koutuu.php" width="1200" height="850"></iframe>
 					</div>
 					<div class="sampletab" id="sampletab8">
-						<iframe src="/php/event.php" width="1200" height="850"></iframe>
+						<iframe src="/html/goukaku.html" width="1200" height="850"></iframe>
 					</div>
-					<div class="sampletab" id="sampletab9">
-						<iframe src="/html/event.html" width="1200" height="850"></iframe>
-					</div>
-				</div>
 			</div>
-			<!-- ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¿ãƒ–ã‚’é¸æŠ -->
+			<!-- ƒfƒtƒHƒ‹ƒg‚Ìƒ^ƒu‚ğ‘I‘ğ -->
 			<script type="text/javascript">
 				ChangeTab('sampletab1');
 			</script>
 		</div>
 	</div>
-	<!-- ãƒ¡ã‚¤ãƒ³ã‚«ãƒ©ãƒ çµ‚äº† -->
+	<!-- ƒƒCƒ“ƒJƒ‰ƒ€I—¹ -->
 </div>
-<!-- ã‚³ãƒ³ãƒ†ãƒŠçµ‚äº† -->
+<!-- ƒRƒ“ƒeƒiI—¹ -->
 
 </body>
 </html>
